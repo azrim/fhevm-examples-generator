@@ -48,6 +48,18 @@ const examples: ExampleConfig[] = [
     contractTemplate: 'templates/contracts/input-proofs.sol',
     testTemplate: 'templates/tests/input-proofs.test.ts',
   },
+  {
+    name: 'blind-auction',
+    category: 'advanced',
+    contractTemplate: 'templates/contracts/blind-auction.sol',
+    testTemplate: 'templates/tests/blind-auction.test.ts',
+  },
+  {
+    name: 'openzeppelin-erc7984',
+    category: 'tokens',
+    contractTemplate: 'templates/contracts/openzeppelin-erc7984.sol',
+    testTemplate: 'templates/tests/openzeppelin-erc7984.test.ts',
+  },
 ];
 
 async function scaffoldAll() {

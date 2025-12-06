@@ -4,41 +4,55 @@
     "path": "D:\\Project\\zama\\scaffolded\\basic-counter",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:11.325Z"
+    "timestamp": "2025-12-06T14:49:39.809Z"
   },
   {
     "name": "arithmetic",
     "path": "D:\\Project\\zama\\scaffolded\\arithmetic",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:17.912Z"
+    "timestamp": "2025-12-06T14:49:44.346Z"
   },
   {
     "name": "equality",
     "path": "D:\\Project\\zama\\scaffolded\\equality",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:25.250Z"
+    "timestamp": "2025-12-06T14:49:47.990Z"
   },
   {
     "name": "encrypt-single-value",
     "path": "D:\\Project\\zama\\scaffolded\\encrypt-single-value",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:33.305Z"
+    "timestamp": "2025-12-06T14:49:51.674Z"
   },
   {
     "name": "access-control",
     "path": "D:\\Project\\zama\\scaffolded\\access-control",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:42.250Z"
+    "timestamp": "2025-12-06T14:49:55.156Z"
   },
   {
     "name": "input-proofs",
     "path": "D:\\Project\\zama\\scaffolded\\input-proofs",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T12:41:51.292Z"
+    "timestamp": "2025-12-06T14:49:59.508Z"
+  },
+  {
+    "name": "blind-auction",
+    "path": "D:\\Project\\zama\\scaffolded\\blind-auction",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T14:50:04.070Z"
+  },
+  {
+    "name": "openzeppelin-erc7984",
+    "path": "D:\\Project\\zama\\scaffolded\\openzeppelin-erc7984",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T14:50:08.039Z"
   }
 ]

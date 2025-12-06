@@ -6,7 +6,7 @@ Production-ready tooling to scaffold standalone Hardhat FHEVM example repositori
 
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
 
-**Status:** ✅ 6 Examples | 50+ Tests | Code Quality Tools | Production Ready
+**Status:** ✅ 8 Examples | 60+ Tests | Code Quality Tools | Production Ready
 
 ## Features
 
@@ -244,11 +244,11 @@ The generator produces:
 - `summary.txt`: Human-readable summary with reproduction commands
 - `scaffolded/`: All generated example repositories (gitignored)
 
-Current status: **6 examples, 50+ passing tests, full code quality tooling**
+Current status: **8 examples, 60+ passing tests, full code quality tooling**
 
 ## Target Examples
 
-Implemented examples (6 total):
+Implemented examples (8 total):
 
 - ✅ **basic-counter** - Simple encrypted counter
 - ✅ **arithmetic** - Add, subtract, multiply operations
@@ -256,6 +256,8 @@ Implemented examples (6 total):
 - ✅ **encrypt-single-value** - Single value encryption with input proofs
 - ✅ **access-control** - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
 - ✅ **input-proofs** - Input proof explanation and best practices
+- ✅ **blind-auction** - Sealed-bid auction with encrypted bids
+- ✅ **openzeppelin-erc7984** - Confidential ERC20 token implementation
 
 Additional examples (add templates as needed):
 
