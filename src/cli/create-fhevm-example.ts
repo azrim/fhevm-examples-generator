@@ -34,6 +34,14 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
   console.log(`\n🚀 Starting scaffold for: ${options.name}`);
   console.log(`   Category: ${options.category || 'uncategorized'}`);
 
+  // Platform-specific notice (show once)
+  if (process.platform === 'win32' && !process.env.WINDOWS_NOTICE_SHOWN) {
+    console.log(
+      `\nℹ️  Note: Some Windows-specific Node.js warnings may appear but don't affect functionality`
+    );
+    process.env.WINDOWS_NOTICE_SHOWN = 'true';
+  }
+
   const result: ScaffoldResult = {
     name: options.name,
     path: '',

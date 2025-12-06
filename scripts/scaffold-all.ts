@@ -66,6 +66,13 @@ async function scaffoldAll() {
   console.log('🚀 FHEVM Examples Generator - Scaffold All Examples\n');
   console.log(`📋 Scaffolding ${examples.length} example(s)...\n`);
 
+  // Platform-specific notice
+  if (process.platform === 'win32') {
+    console.log(
+      "ℹ️  Note: Some Windows-specific Node.js warnings may appear but don't affect functionality\n"
+    );
+  }
+
   const results = [];
   let successCount = 0;
   let failCount = 0;

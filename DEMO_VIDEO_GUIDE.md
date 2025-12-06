@@ -5,11 +5,13 @@ This guide shows you how to create a professional demo video without showing you
 ## Quick Overview
 
 **What you need:**
+
 - Screen recording software (built-in Windows Game Bar or OBS Studio)
 - Video editor for text overlays (Clipchamp or DaVinci Resolve)
 - 30-60 minutes of time
 
 **What you'll create:**
+
 - 2-4 minute video showing your project in action
 - Text overlays explaining each step
 - Optional background music
@@ -124,9 +126,11 @@ You'll get a shareable link like: `https://asciinema.org/a/xxxxx`
 ## Demo Script (2-4 Minutes)
 
 ### Section 1: Introduction (5 seconds)
+
 **Text Overlay:** "FHEVM Examples Generator - Automated Scaffolding for FHEVM Examples"
 
 ### Section 2: Clone and Setup (15 seconds)
+
 **Text Overlay:** "Step 1: Clone and Setup"
 
 ```bash
@@ -138,6 +142,7 @@ npm ci
 **Speed up this part 2x in editing**
 
 ### Section 3: Scaffold Single Example (20 seconds)
+
 **Text Overlay:** "Step 2: Scaffold a Single Example"
 
 ```bash
@@ -145,6 +150,7 @@ npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counte
 ```
 
 ### Section 4: Verify Git History (15 seconds)
+
 **Text Overlay:** "Step 3: Verify Git History Preservation"
 
 ```bash
@@ -161,6 +167,7 @@ git branch -a
 **Text Overlay:** "✓ Dedicated branch created"
 
 ### Section 5: Run Tests (20 seconds)
+
 **Text Overlay:** "Step 4: Run Tests"
 
 ```bash
@@ -170,6 +177,7 @@ npm test
 **Text Overlay:** "✓ 9 tests passing"
 
 ### Section 6: Scaffold All Examples (30 seconds)
+
 **Text Overlay:** "Step 5: Scaffold All 8 Examples"
 
 ```bash
@@ -180,6 +188,7 @@ npm run scaffold:all
 **Speed up this part 4x in editing**
 
 ### Section 7: View Results (15 seconds)
+
 **Text Overlay:** "Step 6: View Results"
 
 ```bash
@@ -193,7 +202,9 @@ cat deliverables.json
 ```
 
 ### Section 8: Features Summary (10 seconds)
+
 **Text Overlay:**
+
 ```
 Key Features:
 ✓ 8 working examples
@@ -205,7 +216,9 @@ Key Features:
 ```
 
 ### Section 9: Closing (5 seconds)
+
 **Text Overlay:**
+
 ```
 GitHub: github.com/azrim/fhevm-examples-generator
 Thank you!
@@ -227,6 +240,7 @@ cat summary.txt
 ```
 
 Add text overlays:
+
 1. "Scaffolding example..."
 2. "Git history ✓"
 3. "Tests passing ✓"
@@ -255,11 +269,13 @@ ls scaffolded
 ## Background Music (Optional)
 
 **Royalty-free music sources:**
+
 - YouTube Audio Library: https://studio.youtube.com/
 - Incompetech: https://incompetech.com/music/royalty-free/
 - Bensound: https://www.bensound.com/
 
 **Recommended tracks:**
+
 - "Inspiring" or "Tech" category
 - Instrumental only
 - Low volume (background only)
@@ -267,6 +283,7 @@ ls scaffolded
 ## Video Hosting Options
 
 ### YouTube (Recommended)
+
 1. Go to https://youtube.com/upload
 2. Upload video
 3. Title: "FHEVM Examples Generator - Demo"
@@ -275,17 +292,20 @@ ls scaffolded
 6. Copy link for submission
 
 ### Vimeo
+
 1. Go to https://vimeo.com/upload
 2. Upload video
 3. Set privacy to "Anyone with link"
 4. Copy link
 
 ### Streamable
+
 1. Go to https://streamable.com/
 2. Upload video (no account needed)
 3. Copy link
 
 ### Google Drive
+
 1. Upload to Google Drive
 2. Right-click → Share → "Anyone with link can view"
 3. Copy link
@@ -293,6 +313,7 @@ ls scaffolded
 ## Tips for Better Video
 
 ### Do:
+
 - ✓ Clear terminal font (increase size if needed)
 - ✓ Clean desktop background
 - ✓ Pause 2-3 seconds between commands
@@ -301,6 +322,7 @@ ls scaffolded
 - ✓ Show successful results clearly
 
 ### Don't:
+
 - ✗ Rush through commands
 - ✗ Show errors without explanation
 - ✗ Include personal information on screen
@@ -309,19 +331,23 @@ ls scaffolded
 ## Troubleshooting
 
 ### "Game Bar won't open"
+
 - Enable Game Bar in Settings → Gaming → Game Bar
 - Or use OBS Studio instead
 
 ### "Video file too large"
+
 - Compress with HandBrake: https://handbrake.fr/
 - Or upload to YouTube (they compress automatically)
 
 ### "Text overlays look bad"
+
 - Use simple fonts (Arial, Helvetica)
 - White text with black outline
 - Keep text on screen for 3-5 seconds
 
 ### "Commands run too fast"
+
 - Add `timeout /t 2` (Windows) or `sleep 2` (Linux) between commands
 - Or slow down video in editing
 
@@ -351,17 +377,20 @@ ls scaffolded
 ## Final Notes
 
 **You don't need:**
+
 - ❌ Your face on camera
 - ❌ Your voice
 - ❌ Professional video equipment
 - ❌ Video editing experience
 
 **You only need:**
+
 - ✓ Screen recording
 - ✓ Text overlays
 - ✓ 30-60 minutes of time
 
 **The video should show:**
+
 1. Your project works
 2. Key features in action
 3. Professional presentation
