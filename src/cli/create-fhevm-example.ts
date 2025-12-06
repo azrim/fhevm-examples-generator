@@ -175,10 +175,10 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
           try {
             await execa('npm', ['rebuild'], { cwd: targetPath, stdio: 'pipe' });
             console.log(`   ✅ Native modules rebuilt`);
-          } catch (rebuildError) {
+          } catch {
             console.warn(`   ⚠️  Rebuild warning (usually safe to ignore)`);
           }
-        } catch (copyError) {
+        } catch {
           console.error(`\n   ⚠️  Cache copy failed, running npm ci...`);
           try {
             await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
