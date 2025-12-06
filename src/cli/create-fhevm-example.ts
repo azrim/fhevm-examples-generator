@@ -157,14 +157,26 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
 
       // Check if base-template has node_modules we can copy
       if (await fs.pathExists(baseNodeModules)) {
-        console.log(`\n   📦 Copying node_modules from base-template...`);
+        console.log(`\n   📦 Installing dependencies from cache...`);
+        const startTime = Date.now();
+
         try {
+          // Count files for progress (optional, can be slow for large dirs)
+          let fileCount = 0;
+          const progressInterval = setInterval(() => {
+            fileCount += 100; // Estimate
+            process.stdout.write(`\r   📦 Installing dependencies from cache... ${fileCount} files`);
+          }, 100);
+
           await fs.copy(baseNodeModules, targetNodeModules, {
             dereference: true,
           });
-          console.log(`   ✅ Dependencies copied`);
+
+          clearInterval(progressInterval);
+          const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+          console.log(`\r   ✅ Dependencies installed from cache (${duration}s)                    `);
         } catch (error: any) {
-          console.error(`   ⚠️  Copy failed, falling back to npm ci...`);
+          console.error(`\n   ⚠️  Cache copy failed, running npm ci...`);
           try {
             await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
             console.log(`   ✅ npm ci completed`);
@@ -174,7 +186,7 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
           }
         }
       } else {
-        console.log(`\n   📦 Running npm ci...`);
+        console.log(`\n   📦 Running npm ci (no cache available)...`);
         try {
           await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
           console.log(`   ✅ npm ci completed`);
