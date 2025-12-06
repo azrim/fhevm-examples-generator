@@ -19,7 +19,7 @@ npm test
 
 # 5. Scaffold all examples
 npm run scaffold:all
-# Expected: 5 examples created, 45 tests passing
+# Expected: 8 examples created, 60+ tests passing
 
 # 6. Test an example
 cd scaffolded/basic-counter
@@ -48,8 +48,9 @@ See `FINAL_SUBMISSION_GUIDE.md` for complete submission instructions.
 
 ## What's Included
 
-✅ 5 working examples
-✅ 45 passing tests
+✅ 8 working examples
+✅ 60+ passing tests
 ✅ Complete automation (CLI, doc generator, driver)
 ✅ CI/CD workflow
 ✅ Comprehensive documentation
+✅ Optimized performance (node_modules caching)

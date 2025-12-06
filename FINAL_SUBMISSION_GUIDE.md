@@ -3,9 +3,10 @@
 **Repository:** https://github.com/azrim/fhevm-examples-generator
 **Status:** ✅ Ready for Submission
 **Date:** December 6, 2025
-ck Submission Checklist
 
-- [x] 5 working examples with 45 passing tests
+## Quick Submission Checklist
+
+- [x] 8 working examples with 60+ passing tests
 - [x] Complete automation (CLI, doc generator, driver script)
 - [x] Comprehensive documentation
 - [x] CI/CD workflow
@@ -61,13 +62,14 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 
    • CLI tool for scaffolding examples with full git history preservation
    • Automated documentation generator from JSDoc/TSDoc tags
-   • 5 working examples: basic-counter, arithmetic, equality, encrypt-single-value, access-control
-   • 45 passing tests across all examples
-   • Driver script for batch scaffolding
+   • 8 working examples covering basic to advanced FHEVM concepts
+   • 60+ passing tests across all examples
+   • Driver script for batch scaffolding with optimized performance
    • GitHub Actions CI/CD workflow
    • GitBook-compatible documentation
+   • Performance optimizations (node_modules caching, ~15s per example)
 
-   The generator preserves template history, creates incremental commits, and produces standalone repos ready to push to GitHub. All examples compile successfully and include comprehensive tests demonstrating FHEVM concepts.
+   The generator preserves template history, creates incremental commits, and produces standalone repos ready to push to GitHub. All examples compile successfully and include comprehensive tests demonstrating FHEVM concepts from basic counters to confidential tokens.
    ```
 
 3. **GitHub repository link** (required)
@@ -102,9 +104,9 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 
 ### Coverage
 
-- ✅ 6 examples covering key FHEVM concepts
-- ✅ 50+ passing tests across all examples
-- ✅ Multiple categories: basics, operations, comparisons, encryption, permissions, security
+- ✅ 8 examples covering key FHEVM concepts
+- ✅ 60+ passing tests across all examples
+- ✅ Multiple categories: basics, operations, comparisons, encryption, permissions, security, advanced, tokens
 
 ### Quality
 
@@ -144,19 +146,22 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 | equality             | Comparisons     | 9     | FHE.eq, FHE.ne, FHE.select operations          |
 | encrypt-single-value | Encryption      | 8     | Input proofs, single value encryption          |
 | access-control       | Permissions     | 10    | FHE.allow, FHE.allowThis, FHE.allowTransient   |
-| input-proofs         | Security        | 5     | Input proof validation and best practices      |
+| input-proofs         | Security        | 8     | Input proof validation and best practices      |
+| blind-auction        | Advanced        | 5     | Sealed-bid auction with encrypted bids         |
+| openzeppelin-erc7984 | Tokens          | 9     | Confidential ERC20 token (ERC-7984 standard)   |
 
 ## Technical Highlights
 
 ### Automation
 
-- **Automatic Setup**: Base template cloned automatically via postinstall hook
-- **CLI**: `create-fhevm-example` scaffolds complete repos
+- **Automatic Setup**: Base template cloned and dependencies installed automatically via postinstall hook
+- **CLI**: `create-fhevm-example` scaffolds complete repos with optional flags
 - **Doc Generator**: Parses JSDoc tags to create GitBook docs
-- **Driver Script**: Batch scaffolds all examples
+- **Driver Script**: Batch scaffolds all examples with optimized performance
 - **Template Validation**: Automated validation of contracts and tests
 - **Code Quality**: ESLint, Prettier, TypeScript checks in CI
 - **CI/CD**: Automated testing in GitHub Actions with base-template verification
+- **Performance**: Node_modules caching reduces scaffolding time from ~30s to ~15s per example
 
 ### Git Workflow
 
@@ -191,7 +196,7 @@ npm test
 
 # Scaffold all examples
 npm run scaffold:all
-# Expected: 5 examples created successfully
+# Expected: 8 examples created successfully
 
 # Test an example
 cd scaffolded/basic-counter
@@ -239,11 +244,12 @@ After submitting:
 ## Final Notes
 
 ✅ **All requirements met**
-✅ **5 working examples**
-✅ **45 passing tests**
+✅ **8 working examples**
+✅ **60+ passing tests**
 ✅ **Complete automation**
 ✅ **Comprehensive documentation**
 ✅ **Production-ready code**
+✅ **Performance optimized**
 
 **You're ready to submit!** 🚀
 

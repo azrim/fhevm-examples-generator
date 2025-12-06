@@ -10,11 +10,11 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
 
 - ✅ TypeScript CLI for scaffolding examples
 - ✅ Documentation generator with JSDoc/TSDoc parsing
-- ✅ Two working example templates (basic-counter, arithmetic)
+- ✅ 8 working example templates covering basic to advanced concepts
 - ✅ Driver script for batch scaffolding
 - ✅ GitHub Actions CI workflow
 - ✅ Comprehensive tests and documentation
-- ✅ Demo script and recording instructions
+- ✅ Performance optimizations (node_modules caching)
 
 ## Deliverables Checkli
 
@@ -33,11 +33,15 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
   - Generates GitBook-compatible README.md
   - Supports: @title, @purpose, @chapter, @example, @note
 
-- [x] **Example Templates**
-  - `templates/contracts/basic-counter.sol` - Simple encrypted counter
-  - `templates/contracts/arithmetic.sol` - Arithmetic operations (add, subtract, multiply)
-  - `templates/tests/basic-counter.test.ts` - Tests with JSDoc tags
-  - `templates/tests/arithmetic.test.ts` - Tests with JSDoc tags
+- [x] **Example Templates** (8 total)
+  - `basic-counter` - Simple encrypted counter
+  - `arithmetic` - Arithmetic operations (add, subtract, multiply)
+  - `equality` - Equality comparison and conditional selection
+  - `encrypt-single-value` - Single value encryption with input proofs
+  - `access-control` - Permission management
+  - `input-proofs` - Input proof explanation and best practices
+  - `blind-auction` - Sealed-bid auction with encrypted bids
+  - `openzeppelin-erc7984` - Confidential ERC20 token implementation
 
 - [x] **Driver Script** (`scripts/scaffold-all.ts`)
   - Scaffolds all configured examples
