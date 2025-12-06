@@ -6,3 +6,4 @@ scaffolded/
 .env
 coverage/
 *.tsbuildinfo
+zama-bounty.txt
