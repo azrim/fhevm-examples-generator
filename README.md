@@ -3,7 +3,8 @@
 Production-ready tooling to scaffold standalone Hardhat FHEVM example repositories from the official [Zama Hardhat template](https://github.com/zama-ai/fhevm-hardhat-template).
 
 **Repository:** https://github.com/azrim/fhevm-examples-generator
-**Bounty Reference:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
+**Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
+**Status:** ✅ 5 Examples | 45 Tests Passing | Ready for Submission
 
 ## Features
 
@@ -234,11 +235,13 @@ npx hardhat compile
 
 ## Deliverables
 
-After scaffolding, check:
+The generator produces:
 
-- `deliverables.json`: Detailed results per example
+- `deliverables.json`: Detailed results per example with test status
 - `summary.txt`: Human-readable summary with reproduction commands
-- `scaffolded/`: All generated example repositories
+- `scaffolded/`: All generated example repositories (gitignored)
+
+Current status: **5 examples, 45 passing tests**
 
 ## Target Examples
 
@@ -265,11 +268,9 @@ Bonus:
 - openzeppelin-erc7984
 - blind-auction
 
-## Demo
+## Submission
 
-See `demo-script.md` for a 2-4 minute walkthrough script.
-
-Run `record-demo.sh` to capture a demo video using asciinema or ffmpeg.
+Ready to submit! See `FINAL_SUBMISSION_GUIDE.md` for submission instructions.
 
 ## Troubleshooting
 
@@ -293,22 +294,20 @@ Update the remote URL with your actual GitHub username:
 git remote set-url your-origin git@github.com:YOUR-USERNAME/repo-name.git
 ```
 
+## Documentation
+
+- **README.md** (this file) - Main usage guide
+- **SUBMISSION.md** - Comprehensive bounty submission document
+- **FINAL_SUBMISSION_GUIDE.md** - Quick submission instructions
+- **BASE_TEMPLATE_NOTE.md** - Information about the base template
+
 ## Resources
 
 - [FHEVM Documentation](https://docs.zama.ai/fhevm)
 - [Zama Hardhat Template](https://github.com/zama-ai/fhevm-hardhat-template)
 - [Bounty Page](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
-- [Example Implementation](https://github.com/poppyseedDev/zama-bounty-11-example-project)
 
 ## License
 
 MIT
-
-## Contributing
-
-Contributions welcome! Please open an issue or PR.
-
-## Contact
-
-For questions about the bounty, contact Azrim via the Zama bounty program.
 
