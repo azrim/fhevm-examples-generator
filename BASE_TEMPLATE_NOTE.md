@@ -5,27 +5,28 @@
 The `base-template/` directory contains a full clone of the official Zama FHEVM Hardhat template from:
 https://github.com/zama-ai/fhevm-hardhat-template
 
+### Automatic Setup
+
+The base template is **automatically cloned** when you run `npm ci` via a postinstall hook.
+
 ### Why it's not in git
 
 The base template is **not tracked in this repository's git** because:
 
 1. It's a complete clone with its own git history (113 commits)
 2. Including it would bloat this repository unnecessarily
-3. It can be easily cloned when needed
+3. It's automatically managed by the setup script
 
-### How to get it
+### Manual Setup
 
-If you clone this repository and the `base-template/` directory is missing, simply run:
+If needed, you can manually clone or re-clone the base template:
 
 ```bash
+# Run setup script
+npm run setup
+
+# Or clone manually
 git clone https://github.com/zama-ai/fhevm-hardhat-template.git base-template
-```
-
-Or use the provided setup:
-
-```bash
-npm ci
-# The base-template should already be present if you cloned from the submission
 ```
 
 ### Verification

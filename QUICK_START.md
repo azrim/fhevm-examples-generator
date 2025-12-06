@@ -7,13 +7,10 @@
 git clone https://github.com/azrim/fhevm-examples-generator.git
 cd fhevm-examples-generator
 
-# 2. Clone base template
-git clone https://github.com/zama-ai/fhevm-hardhat-template.git base-template
-
-# 3. Install dependencies
+# 2. Install dependencies (automatically clones base-template)
 npm ci
 
-# 4. Run tests
+# 3. Run tests
 npm test
 # Expected: 6/6 tests passing
 

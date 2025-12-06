@@ -27,8 +27,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Install generator dependencies
+      - name: Install dependencies (auto-clones base-template)
         run: npm ci
+
+      - name: Verify base-template was cloned
+        run: |
+          if [ ! -d "base-template" ]; then
+            echo "❌ Error: base-template not found"
+            exit 1
+          fi
+          echo "✅ base-template exists and ready"
 
       - name: Scaffold all examples
         run: npm run scaffold:all

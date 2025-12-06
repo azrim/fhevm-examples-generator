@@ -30,12 +30,11 @@ Production-ready tooling to scaffold standalone Hardhat FHEVM example repositori
 git clone https://github.com/azrim/fhevm-examples-generator.git
 cd fhevm-examples-generator
 
-# Clone the base template (if not present)
-git clone https://github.com/zama-ai/fhevm-hardhat-template.git base-template
-
-# Install dependencies
+# Install dependencies (automatically clones base-template)
 npm ci
 ```
+
+The base template is automatically cloned during `npm ci` via the `postinstall` hook.
 
 ### Scaffold a Single Example
 
