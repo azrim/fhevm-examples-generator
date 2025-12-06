@@ -37,6 +37,22 @@ async function setup() {
     });
 
     console.log('\n✅ Successfully cloned base template');
+
+    // Install dependencies in base-template for faster scaffolding
+    console.log('\n📦 Installing dependencies in base-template...');
+    console.log('   This will speed up future scaffolding operations\n');
+
+    try {
+      await execa('npm', ['ci'], {
+        stdio: 'inherit',
+        cwd: BASE_TEMPLATE_DIR,
+      });
+      console.log('\n✅ Dependencies installed');
+    } catch (npmErr) {
+      console.warn('\n⚠️  Failed to install dependencies in base-template');
+      console.warn('   Scaffolding will still work but will be slower');
+    }
+
     console.log('✨ Setup complete!\n');
   } catch (err) {
     const error = err as Error;

@@ -150,15 +150,38 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
       console.log(`      ${commit.hash.substring(0, 7)} ${commit.message}`);
     });
 
-    // Run npm ci (optional)
+    // Install dependencies (optional)
     if (!options.skipInstall) {
-      console.log(`\n   📦 Running npm ci...`);
-      try {
-        await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
-        console.log(`   ✅ npm ci completed`);
-      } catch (error: any) {
-        console.error(`   ❌ npm ci failed: ${error.message}`);
-        throw new Error(`npm ci failed: ${error.message}`);
+      const baseNodeModules = path.join(BASE_TEMPLATE_REPO, 'node_modules');
+      const targetNodeModules = path.join(targetPath, 'node_modules');
+
+      // Check if base-template has node_modules we can copy
+      if (await fs.pathExists(baseNodeModules)) {
+        console.log(`\n   📦 Copying node_modules from base-template...`);
+        try {
+          await fs.copy(baseNodeModules, targetNodeModules, {
+            dereference: true,
+          });
+          console.log(`   ✅ Dependencies copied`);
+        } catch (error: any) {
+          console.error(`   ⚠️  Copy failed, falling back to npm ci...`);
+          try {
+            await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
+            console.log(`   ✅ npm ci completed`);
+          } catch (npmError: any) {
+            console.error(`   ❌ npm ci failed: ${npmError.message}`);
+            throw new Error(`npm ci failed: ${npmError.message}`);
+          }
+        }
+      } else {
+        console.log(`\n   📦 Running npm ci...`);
+        try {
+          await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
+          console.log(`   ✅ npm ci completed`);
+        } catch (error: any) {
+          console.error(`   ❌ npm ci failed: ${error.message}`);
+          throw new Error(`npm ci failed: ${error.message}`);
+        }
       }
 
       // Run tests only if install succeeded and tests not skipped

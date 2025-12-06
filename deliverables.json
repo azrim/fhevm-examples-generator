@@ -4,55 +4,58 @@
     "path": "D:\\Project\\zama\\scaffolded\\basic-counter",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:39.809Z"
+    "timestamp": "2025-12-06T15:04:07.672Z"
   },
   {
     "name": "arithmetic",
     "path": "D:\\Project\\zama\\scaffolded\\arithmetic",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:44.346Z"
+    "timestamp": "2025-12-06T14:54:33.660Z"
   },
   {
     "name": "equality",
     "path": "D:\\Project\\zama\\scaffolded\\equality",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:47.990Z"
+    "timestamp": "2025-12-06T14:55:23.110Z"
   },
   {
     "name": "encrypt-single-value",
     "path": "D:\\Project\\zama\\scaffolded\\encrypt-single-value",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:51.674Z"
+    "timestamp": "2025-12-06T14:56:29.872Z"
   },
   {
     "name": "access-control",
     "path": "D:\\Project\\zama\\scaffolded\\access-control",
     "success": true,
-    "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:55.156Z"
+    "testsPassed": false,
+    "timestamp": "2025-12-06T14:57:12.878Z",
+    "error": "Tests and compilation failed: Command failed with exit code 3221226505: npm test"
   },
   {
     "name": "input-proofs",
     "path": "D:\\Project\\zama\\scaffolded\\input-proofs",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:49:59.508Z"
+    "timestamp": "2025-12-06T14:58:11.772Z"
   },
   {
     "name": "blind-auction",
     "path": "D:\\Project\\zama\\scaffolded\\blind-auction",
     "success": true,
-    "testsPassed": true,
-    "timestamp": "2025-12-06T14:50:04.070Z"
+    "testsPassed": false,
+    "timestamp": "2025-12-06T14:59:10.108Z",
+    "error": "Tests and compilation failed: Command failed with exit code 1: npm test"
   },
   {
     "name": "openzeppelin-erc7984",
     "path": "D:\\Project\\zama\\scaffolded\\openzeppelin-erc7984",
     "success": true,
-    "testsPassed": true,
-    "timestamp": "2025-12-06T14:50:08.039Z"
+    "testsPassed": false,
+    "timestamp": "2025-12-06T15:00:03.373Z",
+    "error": "Tests and compilation failed: Command failed with exit code 1: npm test"
   }
 ]
