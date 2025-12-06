@@ -18,9 +18,9 @@ The submission form does not allow resubmission or editing after submission.
 
 The demo video is now available and prominently linked in this repository:
 
-- **Location in README**: Top of README.md file
+- **Location in README**: Top of README.md file (plays inline)
 - **Video Link**: https://github.com/user-attachments/assets/6f3389b8-e7be-4cb2-ab7a-89df8d7ff2ed
-- **Video File**: Also available in this repository at `demo.mp4` (if uploaded to repo)
+- **Video File**: The original `demo.mp4` file is available upon request (not committed to repo due to size)
 
 ### What the Demo Shows
 
@@ -38,8 +38,8 @@ The 2-minute video demonstrates:
 If there are any questions or concerns about this submission, please contact:
 
 - **GitHub**: azrim
+- **Discord**: azrim89
 - **Repository Issues**: https://github.com/azrim/fhevm-examples-generator/issues
-- **Zama Discord**: [Your Discord username if you want to share]
 
 ### Verification
 
