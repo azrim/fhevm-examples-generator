@@ -1,40 +1,45 @@
-# Table of contents
+# Table of Contents
 
-- [Introduction](README.md)
+* [Introduction](README.md)
 
 ## Getting Started
 
-- [Basic Counter](basic-counter.md)
+* [Installation](getting-started/installation.md)
+* [Your First Contract](getting-started/first-contract.md)
+* [Understanding FHE](getting-started/understanding-fhe.md)
 
-## Operations
+## Basic Examples
 
-- [Arithmetic](arithmetic.md)
+* [Basic Counter](examples/basic-counter.md)
+* [Arithmetic Operations](examples/arithmetic.md)
+* [Equality & Comparisons](examples/equality.md)
 
-## Comparisons
+## Intermediate Examples
 
-- [Equality](equality.md)
+* [Encrypt Single Value](examples/encrypt-single-value.md)
+* [Access Control](examples/access-control.md)
+* [Input Proofs](examples/input-proofs.md)
 
-## Encryption
+## Advanced Examples
 
-- [Encrypt Single Value](encrypt-single-value.md)
+* [Blind Auction](examples/blind-auction.md)
+* [Confidential ERC20](examples/confidential-erc20.md)
 
-## Permissions
+## Core Concepts
 
-- [Access Control](access-control.md)
+* [Encrypted Types](concepts/encrypted-types.md)
+* [FHE Operations](concepts/fhe-operations.md)
+* [Permission System](concepts/permissions.md)
+* [Input Proofs](concepts/input-proofs.md)
 
-## Security
+## Best Practices
 
-- [Input Proofs](input-proofs.md)
-
-## Advanced
-
-- [Blind Auction](blind-auction.md)
-
-## Tokens
-
-- [OpenZeppelin ERC-7984](openzeppelin-erc7984.md)
+* [Security Guidelines](best-practices/security.md)
+* [Gas Optimization](best-practices/gas-optimization.md)
+* [Testing Strategies](best-practices/testing.md)
 
 ## Resources
 
-- [FHEVM Documentation](https://docs.zama.ai/fhevm)
-- [GitHub Repository](https://github.com/azrim/fhevm-examples-generator)
+* [API Reference](resources/api-reference.md)
+* [Troubleshooting](resources/troubleshooting.md)
+* [FAQ](resources/faq.md)
