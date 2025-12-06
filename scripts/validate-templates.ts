@@ -7,7 +7,6 @@ async function validateAllTemplates() {
   console.log('🔍 Validating all templates...\n');
 
   const contractFiles = await glob('templates/contracts/*.sol');
-  const testFiles = await glob('templates/tests/*.test.ts');
 
   let totalErrors = 0;
   let totalWarnings = 0;

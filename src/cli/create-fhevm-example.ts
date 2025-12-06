@@ -127,12 +127,12 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
     console.log(`   🔗 Removing upstream remotes...`);
     try {
       await git.removeRemote('origin');
-    } catch (e) {
+    } catch {
       // Remote might not exist
     }
     try {
       await git.removeRemote('upstream');
-    } catch (e) {
+    } catch {
       // Remote might not exist
     }
 

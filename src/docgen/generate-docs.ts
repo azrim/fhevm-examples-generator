@@ -3,12 +3,6 @@ import path from 'path';
 import { glob } from 'glob';
 import { parse as parseComment } from 'comment-parser';
 
-interface DocSection {
-  type: 'chapter' | 'example' | 'note' | 'title' | 'purpose';
-  content: string;
-  tag?: string;
-}
-
 interface ParsedDocs {
   title?: string;
   purpose?: string;

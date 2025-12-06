@@ -19,7 +19,7 @@ async function setup() {
       console.log('✅ base-template/ is a valid git repository');
       console.log('\n✨ Setup complete!\n');
       return;
-    } catch (error) {
+    } catch {
       console.log('⚠️  base-template/ exists but is not a valid git repository');
       console.log('   Removing and re-cloning...\n');
       await fs.remove(BASE_TEMPLATE_DIR);
@@ -38,7 +38,8 @@ async function setup() {
 
     console.log('\n✅ Successfully cloned base template');
     console.log('✨ Setup complete!\n');
-  } catch (error: any) {
+  } catch (err) {
+    const error = err as Error;
     console.error('\n❌ Failed to clone base template');
     console.error(`   Error: ${error.message}\n`);
     console.error('Please ensure you have git installed and internet connectivity.');
