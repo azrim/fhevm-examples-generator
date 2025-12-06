@@ -35,6 +35,14 @@ jobs:
       - name: Install dependencies (auto-clones base-template)
         run: npm ci
 
+      - name: Run code quality checks
+        run: |
+          echo "🔍 Running code quality checks..."
+          npm run type-check
+          npm run lint
+          npm run format:check
+        continue-on-error: false
+
       - name: Verify base-template was cloned
         run: |
           if [ ! -d "base-template" ]; then
