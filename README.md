@@ -3,7 +3,9 @@
 Production-ready tooling to scaffold standalone Hardhat FHEVM example repositories from the official [Zama Hardhat template](https://github.com/zama-ai/fhevm-hardhat-template).
 
 **Repository:** https://github.com/azrim/fhevm-examples-generator
+
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
+
 **Status:** ✅ 6 Examples | 50+ Tests | Code Quality Tools | Production Ready
 
 ## Features
