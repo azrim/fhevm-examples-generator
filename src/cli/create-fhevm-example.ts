@@ -161,25 +161,24 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
         const startTime = Date.now();
 
         try {
-          // Count files for progress (optional, can be slow for large dirs)
-          let fileCount = 0;
-          const progressInterval = setInterval(() => {
-            fileCount += 100; // Estimate
-            process.stdout.write(
-              `\r   📦 Installing dependencies from cache... ${fileCount} files`
-            );
-          }, 100);
-
+          // Copy node_modules
           await fs.copy(baseNodeModules, targetNodeModules, {
-            dereference: true,
+            dereference: false, // Keep symlinks
+            preserveTimestamps: true,
           });
 
-          clearInterval(progressInterval);
           const duration = ((Date.now() - startTime) / 1000).toFixed(1);
-          console.log(
-            `\r   ✅ Dependencies installed from cache (${duration}s)                    `
-          );
-        } catch {
+          console.log(`   ✅ Dependencies installed from cache (${duration}s)`);
+
+          // Rebuild native modules and fix binaries
+          console.log(`   🔧 Rebuilding native modules...`);
+          try {
+            await execa('npm', ['rebuild'], { cwd: targetPath, stdio: 'pipe' });
+            console.log(`   ✅ Native modules rebuilt`);
+          } catch (rebuildError) {
+            console.warn(`   ⚠️  Rebuild warning (usually safe to ignore)`);
+          }
+        } catch (copyError) {
           console.error(`\n   ⚠️  Cache copy failed, running npm ci...`);
           try {
             await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });

@@ -53,7 +53,7 @@ async function setup() {
       console.warn('   Scaffolding will still work but will be slower');
     }
 
-    console.log('✨ Setup complete!\n');
+    console.log('\n✨ Setup complete!\n');
   } catch (err) {
     const error = err as Error;
     console.error('\n❌ Failed to clone base template');
