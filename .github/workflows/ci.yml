@@ -27,6 +27,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      - name: Configure git for CI
+        run: |
+          git config --global user.email "ci@fhevm-generator.example"
+          git config --global user.name "FHEVM Generator CI"
+
       - name: Install dependencies (auto-clones base-template)
         run: npm ci
 
