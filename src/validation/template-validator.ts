@@ -10,9 +10,7 @@ export interface ValidationResult {
 /**
  * Validates a Solidity contract template
  */
-export async function validateContractTemplate(
-  templatePath: string
-): Promise<ValidationResult> {
+export async function validateContractTemplate(templatePath: string): Promise<ValidationResult> {
   const result: ValidationResult = {
     valid: true,
     errors: [],

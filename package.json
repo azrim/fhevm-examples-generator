@@ -20,7 +20,13 @@
     "scaffold:all": "tsx scripts/scaffold-all.ts",
     "cli": "tsx src/cli/create-fhevm-example.ts"
   },
-  "keywords": ["fhevm", "zama", "hardhat", "generator", "scaffold"],
+  "keywords": [
+    "fhevm",
+    "zama",
+    "hardhat",
+    "generator",
+    "scaffold"
+  ],
   "author": "FHEVM Examples Generator",
   "license": "MIT",
   "dependencies": {

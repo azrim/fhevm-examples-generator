@@ -68,10 +68,14 @@ async function scaffoldAll() {
         'tsx',
         'src/cli/create-fhevm-example.ts',
         example.name,
-        '--category', example.category,
-        '--contractTemplate', example.contractTemplate,
-        '--testTemplate', example.testTemplate,
-        '--outDir', './scaffolded',
+        '--category',
+        example.category,
+        '--contractTemplate',
+        example.contractTemplate,
+        '--testTemplate',
+        example.testTemplate,
+        '--outDir',
+        './scaffolded',
       ];
 
       await execa('npx', args, {
@@ -164,4 +168,3 @@ scaffoldAll().catch((error) => {
   console.error('Fatal error:', error);
   process.exit(1);
 });
-

@@ -16,6 +16,6 @@
     "sourceMap": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*", "scripts/**/*", "templates/**/*"],
-  "exclude": ["node_modules", "dist", "scaffolded", "base-template"]
+  "include": ["src/**/*", "scripts/**/*"],
+  "exclude": ["node_modules", "dist", "scaffolded", "base-template", "templates"]
 }

@@ -55,12 +55,12 @@ Create `templates/tests/your-example.test.ts` with JSDoc tags:
  * @purpose Brief description
  * @chapter Main Section
  */
-describe("YourExample", function () {
+describe('YourExample', function () {
   /**
    * @example Test Case Name
    * @note Important information
    */
-  it("Should test something", async function () {
+  it('Should test something', async function () {
     // Test code
   });
 });
@@ -106,11 +106,13 @@ npm test
 ### When Node.js Updates
 
 1. Update `.github/workflows/ci.yml`:
+
    ```yaml
-   node-version: [XX.x]  # Update version
+   node-version: [XX.x] # Update version
    ```
 
 2. Update `package.json`:
+
    ```json
    "engines": {
      "node": ">=XX"
@@ -149,6 +151,7 @@ npm run format
 ### Update GitHub Actions
 
 The CI automatically:
+
 - Clones base-template
 - Runs code quality checks
 - Scaffolds all examples
@@ -192,6 +195,7 @@ If CI fails:
 ### Faster Scaffolding
 
 The generator already:
+
 - Reuses base template (no re-cloning)
 - Runs tests in parallel where possible
 - Caches npm dependencies
@@ -211,6 +215,7 @@ Visit: https://github.com/azrim/fhevm-examples-generator/actions
 ### Review Deliverables
 
 After scaffolding:
+
 - `deliverables.json` - Test results
 - `summary.txt` - Summary report
 

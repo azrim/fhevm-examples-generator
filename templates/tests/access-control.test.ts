@@ -1,18 +1,18 @@
-import { expect } from "chai";
-import { ethers } from "hardhat";
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
 
 /**
  * @title Access Control Test Suite
  * @purpose This example demonstrates access control patterns for encrypted data, including FHE.allow, FHE.allowThis, and FHE.allowTransient
  * @chapter Access Control Patterns
  */
-describe("AccessControl", function () {
+describe('AccessControl', function () {
   /**
    * @example Contract Compilation
    * @note Verifies that the AccessControl contract compiles successfully
    */
-  it("Should compile the AccessControl contract", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should compile the AccessControl contract', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     expect(AccessControl).to.not.be.undefined;
   });
 
@@ -21,8 +21,8 @@ describe("AccessControl", function () {
    * @example Deploy Access Control Contract
    * @note Tests deployment and owner initialization
    */
-  it("Should deploy AccessControl contract", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should deploy AccessControl contract', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 
@@ -35,8 +35,8 @@ describe("AccessControl", function () {
    * @example Set Balance with Permissions
    * @note Demonstrates FHE.allowThis and FHE.allow for permanent permissions
    */
-  it("Should have setBalance function", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should have setBalance function', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 
@@ -47,8 +47,8 @@ describe("AccessControl", function () {
    * @example Get Balance
    * @note Shows how authorized addresses can access encrypted balances
    */
-  it("Should have getBalance function", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should have getBalance function', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 
@@ -60,8 +60,8 @@ describe("AccessControl", function () {
    * @example Grant Access to Another Address
    * @note Demonstrates explicit permission granting to third parties
    */
-  it("Should have grantAccess function", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should have grantAccess function', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 
@@ -73,8 +73,8 @@ describe("AccessControl", function () {
    * @example Transfer with Transient Access
    * @note Demonstrates FHE.allowTransient for temporary computation access
    */
-  it("Should have transfer function", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should have transfer function', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 
@@ -86,8 +86,8 @@ describe("AccessControl", function () {
    * @example Check Contract Access
    * @note Shows how to verify access permissions
    */
-  it("Should have hasContractAccess function", async function () {
-    const AccessControl = await ethers.getContractFactory("AccessControl");
+  it('Should have hasContractAccess function', async function () {
+    const AccessControl = await ethers.getContractFactory('AccessControl');
     const contract = await AccessControl.deploy();
     await contract.waitForDeployment();
 

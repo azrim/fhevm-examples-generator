@@ -210,4 +210,3 @@ export async function generateDocs(
     return null;
   }
 }
-

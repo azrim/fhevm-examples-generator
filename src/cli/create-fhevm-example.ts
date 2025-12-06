@@ -180,7 +180,6 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
 
     result.success = true;
     console.log(`\n✅ Successfully scaffolded: ${options.name}`);
-
   } catch (error: any) {
     console.error(`\n❌ Failed to scaffold ${options.name}: ${error.message}`);
     result.error = error.message;
@@ -192,41 +191,37 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
 
 // CLI definition
 const argv = await yargs(hideBin(process.argv))
-  .command(
-    '$0 <name>',
-    'Scaffold a new FHEVM example',
-    (yargs) => {
-      return yargs
-        .positional('name', {
-          describe: 'Name of the example',
-          type: 'string',
-          demandOption: true,
-        })
-        .option('category', {
-          describe: 'Category of the example',
-          type: 'string',
-          default: 'uncategorized',
-        })
-        .option('contractTemplate', {
-          describe: 'Path to contract template file',
-          type: 'string',
-        })
-        .option('testTemplate', {
-          describe: 'Path to test template file',
-          type: 'string',
-        })
-        .option('outDir', {
-          describe: 'Output directory for scaffolded examples',
-          type: 'string',
-          default: './scaffolded',
-        })
-        .option('initGit', {
-          describe: 'Initialize git repository',
-          type: 'boolean',
-          default: true,
-        });
-    }
-  )
+  .command('$0 <name>', 'Scaffold a new FHEVM example', (yargs) => {
+    return yargs
+      .positional('name', {
+        describe: 'Name of the example',
+        type: 'string',
+        demandOption: true,
+      })
+      .option('category', {
+        describe: 'Category of the example',
+        type: 'string',
+        default: 'uncategorized',
+      })
+      .option('contractTemplate', {
+        describe: 'Path to contract template file',
+        type: 'string',
+      })
+      .option('testTemplate', {
+        describe: 'Path to test template file',
+        type: 'string',
+      })
+      .option('outDir', {
+        describe: 'Output directory for scaffolded examples',
+        type: 'string',
+        default: './scaffolded',
+      })
+      .option('initGit', {
+        describe: 'Initialize git repository',
+        type: 'boolean',
+        default: true,
+      });
+  })
   .help()
   .alias('help', 'h')
   .version('1.0.0')
@@ -257,4 +252,3 @@ await fs.writeJson(deliverablePath, deliverables, { spaces: 2 });
 console.log(`\n📊 Updated deliverables.json`);
 
 process.exit(result.success ? 0 : 1);
-

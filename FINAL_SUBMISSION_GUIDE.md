@@ -33,6 +33,7 @@ git push origin master
 Visit: https://github.com/azrim/fhevm-examples-generator
 
 Verify:
+
 - ✅ All files are present
 - ✅ README.md displays correctly
 - ✅ 5 template files in templates/
@@ -48,11 +49,13 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 **Required Fields:**
 
 1. **Project name**
+
    ```
    FHEVM Examples Generator
    ```
 
 2. **Description**
+
    ```
    Production-ready TypeScript tooling to scaffold standalone Hardhat FHEVM example repositories from the official Zama template. Features:
 
@@ -75,6 +78,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 **Optional Fields:**
 
 4. **Video pitch** (optional)
+
    ```
    Leave blank or add if you create one
    ```
@@ -87,6 +91,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 ## What Makes This Submission Strong
 
 ### Automation Completeness
+
 - ✅ **Zero-config setup**: Base template cloned automatically
 - ✅ **Postinstall hook**: No manual steps required
 - ✅ **Template validation**: Automated quality checks
@@ -96,11 +101,13 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 - ✅ **Automated documentation**: Generated from JSDoc tags
 
 ### Coverage
+
 - ✅ 6 examples covering key FHEVM concepts
 - ✅ 50+ passing tests across all examples
 - ✅ Multiple categories: basics, operations, comparisons, encryption, permissions, security
 
 ### Quality
+
 - ✅ TypeScript with strict mode
 - ✅ ESLint and Prettier configured
 - ✅ Clean, maintainable code
@@ -109,6 +116,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 - ✅ Template validation system
 
 ### Completeness
+
 - ✅ CLI tool with all required features
 - ✅ Documentation generator with JSDoc parsing
 - ✅ Driver script for batch operations
@@ -117,6 +125,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 - ✅ Incremental commits
 
 ### Innovation
+
 - ✅ Automated README generation from test annotations
 - ✅ Template validation system
 - ✅ GitBook-compatible output
@@ -128,18 +137,19 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 
 ## Examples Delivered
 
-| Example | Category | Tests | Features |
-|---------|----------|-------|----------|
-| basic-counter | Getting Started | 9 | Simple encrypted counter, increment operations |
-| arithmetic | Operations | 9 | Add, subtract, multiply on encrypted values |
-| equality | Comparisons | 9 | FHE.eq, FHE.ne, FHE.select operations |
-| encrypt-single-value | Encryption | 8 | Input proofs, single value encryption |
-| access-control | Permissions | 10 | FHE.allow, FHE.allowThis, FHE.allowTransient |
-| input-proofs | Security | 5 | Input proof validation and best practices |
+| Example              | Category        | Tests | Features                                       |
+| -------------------- | --------------- | ----- | ---------------------------------------------- |
+| basic-counter        | Getting Started | 9     | Simple encrypted counter, increment operations |
+| arithmetic           | Operations      | 9     | Add, subtract, multiply on encrypted values    |
+| equality             | Comparisons     | 9     | FHE.eq, FHE.ne, FHE.select operations          |
+| encrypt-single-value | Encryption      | 8     | Input proofs, single value encryption          |
+| access-control       | Permissions     | 10    | FHE.allow, FHE.allowThis, FHE.allowTransient   |
+| input-proofs         | Security        | 5     | Input proof validation and best practices      |
 
 ## Technical Highlights
 
 ### Automation
+
 - **Automatic Setup**: Base template cloned automatically via postinstall hook
 - **CLI**: `create-fhevm-example` scaffolds complete repos
 - **Doc Generator**: Parses JSDoc tags to create GitBook docs
@@ -149,6 +159,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 - **CI/CD**: Automated testing in GitHub Actions with base-template verification
 
 ### Git Workflow
+
 - Full template history preserved (13+ commits)
 - Dedicated branch per example: `fhevm-example/<name>`
 - Incremental commits: feat → test → docs
@@ -156,6 +167,7 @@ Based on the form at https://forms.zama.org/developer-program-bounty-november:
 - No accidental pushes to upstream
 
 ### Documentation
+
 - Auto-generated READMEs from test annotations
 - GitBook-compatible Markdown
 - Clear usage instructions
@@ -210,6 +222,7 @@ git remote -v
 ## Post-Submission
 
 After submitting:
+
 1. Monitor for any questions from reviewers
 2. Be ready to provide clarifications
 3. Check Guild platform for updates

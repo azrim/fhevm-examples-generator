@@ -45,6 +45,7 @@ npm run cli basic-counter -- \
 ```
 
 This creates `./scaffolded/basic-counter/` with:
+
 - Full base template history preserved
 - Dedicated branch `fhevm-example/basic-counter`
 - Injected contract and test files
@@ -105,6 +106,7 @@ The doc generator parses JSDoc/TSDoc tags from test files:
 ```
 
 The generator produces GitBook-compatible Markdown with:
+
 - Title and description
 - Chapter sections
 - Example subsections
@@ -245,6 +247,7 @@ Current status: **6 examples, 50+ passing tests, full code quality tooling**
 ## Target Examples
 
 Implemented examples (6 total):
+
 - ✅ **basic-counter** - Simple encrypted counter
 - ✅ **arithmetic** - Add, subtract, multiply operations
 - ✅ **equality** - Equality comparison and conditional selection
@@ -253,6 +256,7 @@ Implemented examples (6 total):
 - ✅ **input-proofs** - Input proof explanation and best practices
 
 Additional examples (add templates as needed):
+
 - equality
 - encrypt-single-value
 - encrypt-multiple-values
@@ -265,6 +269,7 @@ Additional examples (add templates as needed):
 - handles-lifecycle
 
 Bonus:
+
 - openzeppelin-erc7984
 - blind-auction
 
@@ -312,4 +317,3 @@ git remote set-url your-origin git@github.com:YOUR-USERNAME/repo-name.git
 ## License
 
 MIT
-

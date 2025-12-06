@@ -32,6 +32,7 @@ npm test
 See `FINAL_SUBMISSION_GUIDE.md` for complete submission instructions.
 
 **TL;DR:**
+
 1. Validate: `npm run validate`
 2. Push to GitHub: `git push origin master`
 3. Submit on Zama Guild with repository URL

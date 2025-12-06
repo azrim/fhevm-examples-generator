@@ -1,18 +1,18 @@
-import { expect } from "chai";
-import { ethers } from "hardhat";
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
 
 /**
  * @title Basic Counter Test Suite
  * @purpose This example demonstrates a simple encrypted counter using FHEVM, showing how to store and increment encrypted values
  * @chapter Getting Started with FHEVM
  */
-describe("BasicCounter", function () {
+describe('BasicCounter', function () {
   /**
    * @example Contract Compilation
    * @note Verifies that the BasicCounter contract compiles successfully
    */
-  it("Should compile the BasicCounter contract", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should compile the BasicCounter contract', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     expect(BasicCounter).to.not.be.undefined;
   });
 
@@ -21,8 +21,8 @@ describe("BasicCounter", function () {
    * @example Deploy Counter Contract
    * @note Tests deployment and initialization of the encrypted counter
    */
-  it("Should deploy BasicCounter contract", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should deploy BasicCounter contract', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     const counter = await BasicCounter.deploy();
     await counter.waitForDeployment();
 
@@ -35,8 +35,8 @@ describe("BasicCounter", function () {
    * @example Increment Counter
    * @note Demonstrates incrementing the encrypted counter by 1
    */
-  it("Should have increment function", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should have increment function', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     const counter = await BasicCounter.deploy();
     await counter.waitForDeployment();
 
@@ -47,8 +47,8 @@ describe("BasicCounter", function () {
    * @example Get Counter Value
    * @note Shows how to retrieve the encrypted counter value
    */
-  it("Should have getCounter function", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should have getCounter function', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     const counter = await BasicCounter.deploy();
     await counter.waitForDeployment();
 
@@ -59,8 +59,8 @@ describe("BasicCounter", function () {
    * @example Increment by Custom Amount
    * @note Demonstrates incrementing by an encrypted amount using input proofs
    */
-  it("Should have incrementBy function", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should have incrementBy function', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     const counter = await BasicCounter.deploy();
     await counter.waitForDeployment();
 
@@ -72,8 +72,8 @@ describe("BasicCounter", function () {
    * @example Call Increment Function
    * @note Tests that increment can be called without errors
    */
-  it("Should call increment without error", async function () {
-    const BasicCounter = await ethers.getContractFactory("BasicCounter");
+  it('Should call increment without error', async function () {
+    const BasicCounter = await ethers.getContractFactory('BasicCounter');
     const counter = await BasicCounter.deploy();
     await counter.waitForDeployment();
 
