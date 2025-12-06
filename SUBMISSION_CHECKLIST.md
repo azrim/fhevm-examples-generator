@@ -40,10 +40,10 @@
 
 ### ✅ Mandatory Requirements
 
-- [x] **Demonstration video** (REQUIRED)
-  - Script prepared: `demo-script.md` ✅
-  - Recording instructions: `record-demo.sh` ✅
-  - ⏭️ TODO: Record and upload video
+- [x] **Demonstration video** (NOT REQUIRED per submission form)
+  - Script prepared: `demo-script.md` ✅ (optional reference)
+  - Recording instructions: `record-demo.sh` ✅ (optional reference)
+  - Video pitch field is optional on submission form
 
 ### ✅ Technical Requirements
 
@@ -107,21 +107,7 @@
 
 ## Submission Steps
 
-### 1. Record Demo Video (TODO)
-
-```bash
-# Follow the demo script
-cat demo-script.md
-
-# Use recording tool
-bash record-demo.sh
-
-# Upload to YouTube/Vimeo
-# Duration: 2-4 minutes
-# Show: setup, scaffolding, tests, git history, documentation
-```
-
-### 2. Push to GitHub
+### 1. Push to GitHub
 
 ```bash
 # Verify remote
@@ -134,25 +120,26 @@ git push -u origin master
 # https://github.com/azrim/fhevm-examples-generator
 ```
 
-### 3. Prepare Submission Package
+### 2. Prepare Submission Package
 
-- [ ] Repository URL: https://github.com/azrim/fhevm-examples-generator
-- [ ] Demo video URL: [TODO: Add after recording]
-- [ ] Brief description (for Guild submission)
-- [ ] Screenshots/GIFs (optional but recommended)
+- [x] Repository URL: https://github.com/azrim/fhevm-examples-generator
+- [x] Brief description (for Guild submission)
+- [ ] Video pitch URL: (optional field)
+- [ ] Demo website: (optional field)
 
-### 4. Submit to Zama Guild
+### 3. Submit to Zama Guild
 
 1. Go to: https://guild.xyz/zama
 2. Connect wallet
 3. Navigate to bounty submission page
-4. Fill in:
-   - Repository URL
-   - Demo video URL
-   - Description
-   - Any additional notes
+4. Fill in required fields:
+   - **Project name** (required)
+   - **Description** (required)
+   - **GitHub repository link** (required): https://github.com/azrim/fhevm-examples-generator
+   - Video pitch (optional)
+   - Demo website (optional)
 
-### 5. Verification
+### 4. Verification
 
 Before submitting, verify:
 
@@ -235,7 +222,7 @@ git log --oneline -n 10
 - [x] Tests are passing
 - [x] Examples are working
 - [x] Documentation is comprehensive
-- [ ] Demo video recorded and uploaded
+- [x] Repository ready to push to GitHub
 - [ ] Repository pushed to GitHub
 - [ ] Submission made on Zama Guild
 
