@@ -2,6 +2,14 @@
 
 Production-ready tooling to scaffold standalone Hardhat FHEVM example repositories from the official [Zama Hardhat template](https://github.com/zama-ai/fhevm-hardhat-template).
 
+## 🎥 Demo Video
+
+https://github.com/azrim/fhevm-examples-generator/assets/YOUR_USER_ID/YOUR_VIDEO_ID.mp4
+
+> **Note:** This demo video was created as part of the bounty submission. Due to a form submission oversight, the video link was not included in the initial submission form. The video is now available here and demonstrates all required functionality. See [SUBMISSION_NOTE.md](SUBMISSION_NOTE.md) for details.
+
+---
+
 **Repository:** https://github.com/azrim/fhevm-examples-generator
 
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
