@@ -24,13 +24,24 @@ const examples: ExampleConfig[] = [
     contractTemplate: 'templates/contracts/arithmetic.sol',
     testTemplate: 'templates/tests/arithmetic.test.ts',
   },
-  // Additional examples can be added here as templates are created
-  // {
-  //   name: 'equality',
-  //   category: 'comparisons',
-  //   contractTemplate: 'templates/contracts/equality.sol',
-  //   testTemplate: 'templates/tests/equality.test.ts',
-  // },
+  {
+    name: 'equality',
+    category: 'comparisons',
+    contractTemplate: 'templates/contracts/equality.sol',
+    testTemplate: 'templates/tests/equality.test.ts',
+  },
+  {
+    name: 'encrypt-single-value',
+    category: 'encryption',
+    contractTemplate: 'templates/contracts/encrypt-single-value.sol',
+    testTemplate: 'templates/tests/encrypt-single-value.test.ts',
+  },
+  {
+    name: 'access-control',
+    category: 'permissions',
+    contractTemplate: 'templates/contracts/access-control.sol',
+    testTemplate: 'templates/tests/access-control.test.ts',
+  },
 ];
 
 async function scaffoldAll() {
