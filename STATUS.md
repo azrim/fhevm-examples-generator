@@ -26,6 +26,9 @@ The FHEVM Examples Generator is production-ready and fully functional. All requi
 |----------|--------|----------|------|---------------|
 | basic-counter | ✅ Complete | ✅ | ✅ | ✅ JSDoc tags |
 | arithmetic | ✅ Complete | ✅ | ✅ | ✅ JSDoc tags |
+| equality | ✅ Complete | ✅ | ✅ | ✅ JSDoc tags |
+| encrypt-single-value | ✅ Complete | ✅ | ✅ | ✅ JSDoc tags |
+| access-control | ✅ Complete | ✅ | ✅ | ✅ JSDoc tags |
 
 ### ✅ Documentation (100% Complete)
 
@@ -78,6 +81,24 @@ Time:        1.563 s
 
 **arithmetic:**
 - ✅ 9 tests passing
+- ✅ Compilation successful
+- ✅ README generated
+- ✅ Git history preserved
+
+**equality:**
+- ✅ 9 tests passing
+- ✅ Compilation successful
+- ✅ README generated
+- ✅ Git history preserved
+
+**encrypt-single-value:**
+- ✅ 8 tests passing
+- ✅ Compilation successful
+- ✅ README generated
+- ✅ Git history preserved
+
+**access-control:**
+- ✅ 10 tests passing
 - ✅ Compilation successful
 - ✅ README generated
 - ✅ Git history preserved

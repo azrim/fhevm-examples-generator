@@ -242,9 +242,12 @@ After scaffolding, check:
 
 ## Target Examples
 
-Minimum set (implemented):
-- ✅ basic-counter
-- ✅ arithmetic
+Implemented examples:
+- ✅ basic-counter - Simple encrypted counter
+- ✅ arithmetic - Add, subtract, multiply operations
+- ✅ equality - Equality comparison and conditional selection
+- ✅ encrypt-single-value - Single value encryption with input proofs
+- ✅ access-control - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
 
 Additional examples (add templates as needed):
 - equality
