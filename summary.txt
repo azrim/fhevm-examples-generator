@@ -1,0 +1,36 @@
+FHEVM Examples Generator - Scaffold Summary
+Generated: 2025-12-06T11:07:24.262Z
+
+RESULTS:
+  ✅ basic-counter
+  ✅ arithmetic
+
+STATISTICS:
+  Successful: 2
+  Failed: 0
+  Total: 2
+
+REPRODUCTION COMMANDS:
+To reproduce locally, run:
+
+  npm ci
+  npm run scaffold:all
+
+Or scaffold individual examples:
+
+  npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counter.sol --testTemplate templates/tests/basic-counter.test.ts
+  npm run cli arithmetic -- --contractTemplate templates/contracts/arithmetic.sol --testTemplate templates/tests/arithmetic.test.ts
+
+PUSHING TO GITHUB:
+For each scaffolded example in ./scaffolded/, navigate to the directory and push:
+
+  cd scaffolded/basic-counter
+  git remote set-url your-origin git@github.com:YOUR-USERNAME/basic-counter.git
+  git push your-origin fhevm-example/basic-counter
+
+Replace YOUR-USERNAME with your actual GitHub username.
+
+DELIVERABLES:
+  - deliverables.json: Detailed results for each example
+  - summary.txt: This file
+  - scaffolded/: Directory containing all generated examples
