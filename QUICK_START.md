@@ -10,7 +10,10 @@ cd fhevm-examples-generator
 # 2. Install dependencies (automatically clones base-template)
 npm ci
 
-# 3. Run tests
+# 3. Validate code quality
+npm run validate
+
+# 4. Run tests
 npm test
 # Expected: 6/6 tests passing
 
@@ -29,9 +32,10 @@ npm test
 See `FINAL_SUBMISSION_GUIDE.md` for complete submission instructions.
 
 **TL;DR:**
-1. Push to GitHub: `git push origin master`
-2. Submit on Zama Guild with repository URL
-3. Done!
+1. Validate: `npm run validate`
+2. Push to GitHub: `git push origin master`
+3. Submit on Zama Guild with repository URL
+4. Done!
 
 ## Documentation Structure
 
