@@ -1,14 +1,17 @@
 FHEVM Examples Generator - Scaffold Summary
-Generated: 2025-12-06T11:07:24.262Z
+Generated: 2025-12-06T11:32:55.638Z
 
 RESULTS:
   ✅ basic-counter
   ✅ arithmetic
+  ✅ equality
+  ✅ encrypt-single-value
+  ✅ access-control
 
 STATISTICS:
-  Successful: 2
+  Successful: 5
   Failed: 0
-  Total: 2
+  Total: 5
 
 REPRODUCTION COMMANDS:
 To reproduce locally, run:
