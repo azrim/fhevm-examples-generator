@@ -4,7 +4,7 @@ Production-ready tooling to scaffold standalone Hardhat FHEVM example repositori
 
 ## 🎥 Demo Video
 
-https://github.com/azrim/fhevm-examples-generator/assets/YOUR_USER_ID/YOUR_VIDEO_ID.mp4
+https://github.com/user-attachments/assets/6f3389b8-e7be-4cb2-ab7a-89df8d7ff2ed
 
 > **Note:** This demo video was created as part of the bounty submission. Due to a form submission oversight, the video link was not included in the initial submission form. The video is now available here and demonstrates all required functionality. See [SUBMISSION_NOTE.md](SUBMISSION_NOTE.md) for details.
 

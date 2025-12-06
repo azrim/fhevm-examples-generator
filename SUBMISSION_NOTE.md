@@ -19,7 +19,7 @@ The submission form does not allow resubmission or editing after submission.
 The demo video is now available and prominently linked in this repository:
 
 - **Location in README**: Top of README.md file
-- **Video Link**: [INSERT YOUR VIDEO URL HERE]
+- **Video Link**: https://github.com/user-attachments/assets/6f3389b8-e7be-4cb2-ab7a-89df8d7ff2ed
 - **Video File**: Also available in this repository at `demo.mp4` (if uploaded to repo)
 
 ### What the Demo Shows
