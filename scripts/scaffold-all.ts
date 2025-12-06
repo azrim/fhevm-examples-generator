@@ -42,6 +42,12 @@ const examples: ExampleConfig[] = [
     contractTemplate: 'templates/contracts/access-control.sol',
     testTemplate: 'templates/tests/access-control.test.ts',
   },
+  {
+    name: 'input-proofs',
+    category: 'security',
+    contractTemplate: 'templates/contracts/input-proofs.sol',
+    testTemplate: 'templates/tests/input-proofs.test.ts',
+  },
 ];
 
 async function scaffoldAll() {
