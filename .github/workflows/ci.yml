@@ -70,10 +70,7 @@ jobs:
 
               cd "$example_dir"
 
-              # Install dependencies
-              echo "📦 Installing dependencies..."
-              npm ci
-
+              # Dependencies already installed by scaffold script
               # Run tests (fallback to compile if tests fail)
               echo "🧪 Running tests..."
               if npm test; then
