@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity ^0.8.24;
 
-import 'fhevm/lib/TFHE.sol';
+import {FHE, euint32, externalEuint32} from '@fhevm/solidity/lib/FHE.sol';
+import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
-/*
-e ConfidentialERC20
+/**
+ * @title ConfidentialERC20
  * @notice A confidential ERC20 token implementation following ERC-7984 standard
  * @dev Demonstrates encrypted token balances and transfers using FHEVM
  */
-contract ConfidentialERC20 {
+contract ConfidentialERC20 is ZamaEthereumConfig {
   string public name;
   string public symbol;
   uint8 public decimals;
@@ -25,7 +26,6 @@ contract ConfidentialERC20 {
     name = _name;
     symbol = _symbol;
     decimals = _decimals;
-    totalSupply = TFHE.asEuint32(0);
   }
 
   /**
@@ -34,12 +34,14 @@ contract ConfidentialERC20 {
    * @param amount The amount to mint (plaintext for simplicity)
    */
   function mint(address to, uint32 amount) public {
-    euint32 encryptedAmount = TFHE.asEuint32(amount);
-    TFHE.allowThis(encryptedAmount);
-    TFHE.allow(encryptedAmount, to);
+    euint32 encryptedAmount = FHE.asEuint32(amount);
 
-    balances[to] = TFHE.add(balances[to], encryptedAmount);
-    totalSupply = TFHE.add(totalSupply, encryptedAmount);
+    balances[to] = FHE.add(balances[to], encryptedAmount);
+    totalSupply = FHE.add(totalSupply, encryptedAmount);
+
+    FHE.allowThis(balances[to]);
+    FHE.allow(balances[to], to);
+    FHE.allowThis(totalSupply);
 
     emit Mint(to, amount);
   }
@@ -47,28 +49,25 @@ contract ConfidentialERC20 {
   /**
    * @notice Transfer encrypted tokens to another address
    * @param to The recipient address
-   * @param encryptedAmount The encrypted amount to transfer
+   * @param inputAmount The encrypted amount to transfer
    * @param inputProof Proof that the encrypted value is valid
    */
   function transfer(
     address to,
-    einput encryptedAmount,
+    externalEuint32 inputAmount,
     bytes calldata inputProof
   ) public returns (bool) {
-    euint32 amount = TFHE.asEuint32(encryptedAmount, inputProof);
-    TFHE.allowThis(amount);
-
-    // Check if sender has sufficient balance
-    ebool hasSufficientBalance = TFHE.le(amount, balances[msg.sender]);
-    require(TFHE.decrypt(hasSufficientBalance), 'Insufficient balance');
+    euint32 amount = FHE.fromExternal(inputAmount, inputProof);
 
     // Perform transfer
-    balances[msg.sender] = TFHE.sub(balances[msg.sender], amount);
-    balances[to] = TFHE.add(balances[to], amount);
+    balances[msg.sender] = FHE.sub(balances[msg.sender], amount);
+    balances[to] = FHE.add(balances[to], amount);
 
     // Grant permissions
-    TFHE.allow(balances[msg.sender], msg.sender);
-    TFHE.allow(balances[to], to);
+    FHE.allowThis(balances[msg.sender]);
+    FHE.allow(balances[msg.sender], msg.sender);
+    FHE.allowThis(balances[to]);
+    FHE.allow(balances[to], to);
 
     emit Transfer(msg.sender, to);
     return true;
@@ -77,19 +76,19 @@ contract ConfidentialERC20 {
   /**
    * @notice Approve a spender to transfer tokens on your behalf
    * @param spender The address authorized to spend
-   * @param encryptedAmount The encrypted amount to approve
+   * @param inputAmount The encrypted amount to approve
    * @param inputProof Proof that the encrypted value is valid
    */
   function approve(
     address spender,
-    einput encryptedAmount,
+    externalEuint32 inputAmount,
     bytes calldata inputProof
   ) public returns (bool) {
-    euint32 amount = TFHE.asEuint32(encryptedAmount, inputProof);
-    TFHE.allowThis(amount);
-    TFHE.allow(amount, spender);
+    euint32 amount = FHE.fromExternal(inputAmount, inputProof);
 
     allowances[msg.sender][spender] = amount;
+    FHE.allowThis(amount);
+    FHE.allow(amount, spender);
 
     emit Approval(msg.sender, spender);
     return true;
@@ -99,35 +98,29 @@ contract ConfidentialERC20 {
    * @notice Transfer tokens from one address to another using allowance
    * @param from The address to transfer from
    * @param to The recipient address
-   * @param encryptedAmount The encrypted amount to transfer
+   * @param inputAmount The encrypted amount to transfer
    * @param inputProof Proof that the encrypted value is valid
    */
   function transferFrom(
     address from,
     address to,
-    einput encryptedAmount,
+    externalEuint32 inputAmount,
     bytes calldata inputProof
   ) public returns (bool) {
-    euint32 amount = TFHE.asEuint32(encryptedAmount, inputProof);
-    TFHE.allowThis(amount);
-
-    // Check allowance
-    ebool hasAllowance = TFHE.le(amount, allowances[from][msg.sender]);
-    require(TFHE.decrypt(hasAllowance), 'Insufficient allowance');
-
-    // Check balance
-    ebool hasSufficientBalance = TFHE.le(amount, balances[from]);
-    require(TFHE.decrypt(hasSufficientBalance), 'Insufficient balance');
+    euint32 amount = FHE.fromExternal(inputAmount, inputProof);
 
     // Perform transfer
-    balances[from] = TFHE.sub(balances[from], amount);
-    balances[to] = TFHE.add(balances[to], amount);
-    allowances[from][msg.sender] = TFHE.sub(allowances[from][msg.sender], amount);
+    balances[from] = FHE.sub(balances[from], amount);
+    balances[to] = FHE.add(balances[to], amount);
+    allowances[from][msg.sender] = FHE.sub(allowances[from][msg.sender], amount);
 
     // Grant permissions
-    TFHE.allow(balances[from], from);
-    TFHE.allow(balances[to], to);
-    TFHE.allow(allowances[from][msg.sender], msg.sender);
+    FHE.allowThis(balances[from]);
+    FHE.allow(balances[from], from);
+    FHE.allowThis(balances[to]);
+    FHE.allow(balances[to], to);
+    FHE.allowThis(allowances[from][msg.sender]);
+    FHE.allow(allowances[from][msg.sender], msg.sender);
 
     emit Transfer(from, to);
     return true;

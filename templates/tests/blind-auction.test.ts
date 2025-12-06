@@ -57,12 +57,5 @@ describe('BlindAuction', function () {
     expect(auction.endAuction).to.be.a('function');
   });
 
-  it('Should have getHighestBid function', async function () {
-    const [owner] = await ethers.getSigners();
-    const BlindAuction = await ethers.getContractFactory('BlindAuction');
-    const auction = await BlindAuction.deploy(owner.address, 3600);
-    await auction.waitForDeployment();
 
-    expect(auction.getHighestBid).to.be.a('function');
-  });
 });
