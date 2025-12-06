@@ -43,8 +43,6 @@ cd fhevm-examples-generator
 npm ci
 npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counter.sol --testTemplate templates/tests/basic-counter.test.ts
 cd scaffolded/basic-counter
-git log --oneline -n 10
-git branch -a
 npm test
 cd ../..
 npm run scaffold:all
@@ -66,10 +64,9 @@ Press `Win + Alt + R` to stop recording. Video saved to `C:\Users\YourName\Video
    - "FHEVM Examples Generator"
    - "Step 1: Clone and Setup"
    - "Step 2: Scaffold Example"
-   - "Step 3: Verify Git History"
-   - "Step 4: Run Tests"
-   - "Step 5: Scaffold All Examples"
-   - "Step 6: View Results"
+   - "Step 3: Run Tests"
+   - "Step 4: Scaffold All Examples"
+   - "Step 5: View Results"
    - "Complete! 8 Examples Ready"
 
 4. Export video (1080p recommended)
@@ -149,36 +146,20 @@ npm ci
 npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counter.sol --testTemplate templates/tests/basic-counter.test.ts
 ```
 
-### Section 4: Verify Git History (15 seconds)
+### Section 4: Run Tests (20 seconds)
 
-**Text Overlay:** "Step 3: Verify Git History Preservation"
+**Text Overlay:** "Step 3: Run Tests"
 
 ```bash
 cd scaffolded/basic-counter
-git log --oneline -n 10
-```
-
-**Text Overlay:** "✓ Template history preserved + 3 new commits"
-
-```bash
-git branch -a
-```
-
-**Text Overlay:** "✓ Dedicated branch created"
-
-### Section 5: Run Tests (20 seconds)
-
-**Text Overlay:** "Step 4: Run Tests"
-
-```bash
 npm test
 ```
 
 **Text Overlay:** "✓ 9 tests passing"
 
-### Section 6: Scaffold All Examples (30 seconds)
+### Section 5: Scaffold All Examples (30 seconds)
 
-**Text Overlay:** "Step 5: Scaffold All 8 Examples"
+**Text Overlay:** "Step 4: Scaffold All 8 Examples"
 
 ```bash
 cd ../..
@@ -187,9 +168,9 @@ npm run scaffold:all
 
 **Speed up this part 4x in editing**
 
-### Section 7: View Results (15 seconds)
+### Section 6: View Results (15 seconds)
 
-**Text Overlay:** "Step 6: View Results"
+**Text Overlay:** "Step 5: View Results"
 
 ```bash
 cat summary.txt
@@ -201,7 +182,7 @@ cat summary.txt
 cat deliverables.json
 ```
 
-### Section 8: Features Summary (10 seconds)
+### Section 7: Features Summary (10 seconds)
 
 **Text Overlay:**
 
@@ -215,7 +196,7 @@ Key Features:
 ✓ Full git history preservation
 ```
 
-### Section 9: Closing (5 seconds)
+### Section 8: Closing (5 seconds)
 
 **Text Overlay:**
 
@@ -232,7 +213,6 @@ If you want a shorter video, record only this:
 cd fhevm-examples-generator
 npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counter.sol --testTemplate templates/tests/basic-counter.test.ts
 cd scaffolded/basic-counter
-git log --oneline -n 5
 npm test
 cd ../..
 npm run scaffold:all
@@ -242,10 +222,9 @@ cat summary.txt
 Add text overlays:
 
 1. "Scaffolding example..."
-2. "Git history ✓"
-3. "Tests passing ✓"
-4. "Scaffolding all 8 examples..."
-5. "Complete!"
+2. "Tests passing ✓"
+3. "Scaffolding all 8 examples..."
+4. "Complete!"
 
 ## All Commands in One Block (Copy-Paste Ready)
 
@@ -255,9 +234,6 @@ cd fhevm-examples-generator
 npm ci
 npm run cli basic-counter -- --contractTemplate templates/contracts/basic-counter.sol --testTemplate templates/tests/basic-counter.test.ts
 cd scaffolded/basic-counter
-git log --oneline -n 10
-git branch -a
-git remote -v
 npm test
 cd ../..
 npm run scaffold:all
@@ -357,12 +333,11 @@ ls scaffolded
 0:00 - 0:05   Title screen
 0:05 - 0:20   Clone and setup (sped up 2x)
 0:20 - 0:40   Scaffold single example
-0:40 - 0:55   Show git history
-0:55 - 1:15   Run tests
-1:15 - 1:45   Scaffold all examples (sped up 4x)
-1:45 - 2:00   Show results
-2:00 - 2:10   Features summary
-2:10 - 2:15   Closing
+0:40 - 1:00   Run tests
+1:00 - 1:30   Scaffold all examples (sped up 4x)
+1:30 - 1:45   Show results
+1:45 - 1:55   Features summary
+1:55 - 2:00   Closing
 ```
 
 ## Submission Checklist
