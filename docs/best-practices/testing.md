@@ -6,13 +6,13 @@ Testing Environment Setup
 ### Basic Test Structure
 
 ```typescript
-import { expect } from "chai";
-import { ethers } from "hardhat";
-import { createInstances } from "../instance";
-import { getSigners, initSigners } from "../signers";
-import { deployYourContractFixture } from "./YourContract.fixture";
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
+import { createInstances } from '../instance';
+import { getSigners, initSigners } from '../signers';
+import { deployYourContractFixture } from './YourContract.fixture';
 
-describe("YourContract", function () {
+describe('YourContract', function () {
   before(async function () {
     await initSigners();
     this.signers = await getSigners();
@@ -25,7 +25,7 @@ describe("YourContract", function () {
     this.instances = await createInstances(this.contractAddress, ethers, this.signers);
   });
 
-  it("should perform encrypted operation", async function () {
+  it('should perform encrypted operation', async function () {
     // Your test logic
   });
 });
@@ -56,10 +56,10 @@ describe("YourContract", function () {
 ### Creating Encrypted Inputs
 
 ```typescript
-it("should handle encrypted input correctly", async function () {
+it('should handle encrypted input correctly', async function () {
   const input = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
 
   input.add32(42);
@@ -76,11 +76,11 @@ it("should handle encrypted input correctly", async function () {
 ### Decrypting for Assertions
 
 ```typescript
-it("should decrypt value correctly", async function () {
+it('should decrypt value correctly', async function () {
   // Set encrypted value
   const input = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input.add32(100);
   const encryptedInput = await input.encrypt();
@@ -103,14 +103,14 @@ it("should decrypt value correctly", async function () {
 ### Testing Access Control
 
 ```typescript
-describe("Permission System", function () {
-  it("should allow owner to decrypt", async function () {
+describe('Permission System', function () {
+  it('should allow owner to decrypt', async function () {
     const handle = await this.contract.getEncryptedValue();
     const decrypted = await this.instances.alice.decrypt(this.contractAddress, handle);
     expect(decrypted).to.not.be.undefined;
   });
 
-  it("should deny unauthorized user", async function () {
+  it('should deny unauthorized user', async function () {
     const handle = await this.contract.getEncryptedValue();
 
     // Bob tries to decrypt Alice's value
@@ -122,7 +122,7 @@ describe("Permission System", function () {
 ### Testing Permission Grants
 
 ```typescript
-it("should grant permission to another user", async function () {
+it('should grant permission to another user', async function () {
   // Alice grants permission to Bob
   await this.contract.connect(this.signers.alice).grantPermission(this.signers.bob.address);
 
@@ -139,11 +139,11 @@ it("should grant permission to another user", async function () {
 ### Testing Arithmetic Operations
 
 ```typescript
-it("should add encrypted values correctly", async function () {
+it('should add encrypted values correctly', async function () {
   // Set first value
   const input1 = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input1.add32(10);
   const enc1 = await input1.encrypt();
@@ -153,7 +153,7 @@ it("should add encrypted values correctly", async function () {
   // Set second value
   const input2 = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input2.add32(20);
   const enc2 = await input2.encrypt();
@@ -173,15 +173,17 @@ it("should add encrypted values correctly", async function () {
 ### Testing Conditional Logic
 
 ```typescript
-it("should execute conditional correctly", async function () {
+it('should execute conditional correctly', async function () {
   const input = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input.addBool(true);
   const encInput = await input.encrypt();
 
-  await this.contract.connect(this.signers.alice).setCondition(encInput.handles[0], encInput.inputProof);
+  await this.contract
+    .connect(this.signers.alice)
+    .setCondition(encInput.handles[0], encInput.inputProof);
 
   await this.contract.connect(this.signers.alice).executeConditional();
 
@@ -196,17 +198,17 @@ it("should execute conditional correctly", async function () {
 ### Invalid Input Proofs
 
 ```typescript
-it("should reject invalid input proof", async function () {
+it('should reject invalid input proof', async function () {
   const input = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input.add32(42);
   const encInput = await input.encrypt();
 
   // Use wrong signer
   await expect(
-    this.contract.connect(this.signers.bob).setValue(encInput.handles[0], encInput.inputProof),
+    this.contract.connect(this.signers.bob).setValue(encInput.handles[0], encInput.inputProof)
   ).to.be.reverted;
 });
 ```
@@ -214,9 +216,10 @@ it("should reject invalid input proof", async function () {
 ### Missing Permissions
 
 ```typescript
-it("should fail without allowThis", async function () {
+it('should fail without allowThis', async function () {
   // Contract that forgets to call FHE.allowThis
-  await expect(this.contract.connect(this.signers.alice).getValueWithoutPermission()).to.be.reverted;
+  await expect(this.contract.connect(this.signers.alice).getValueWithoutPermission()).to.be
+    .reverted;
 });
 ```
 
@@ -225,10 +228,10 @@ it("should fail without allowThis", async function () {
 ### Gas Usage
 
 ```typescript
-it("should measure gas for encrypted operations", async function () {
+it('should measure gas for encrypted operations', async function () {
   const input = this.instances.alice.createEncryptedInput(
     this.contractAddress,
-    this.signers.alice.address,
+    this.signers.alice.address
   );
   input.add32(42);
   const encInput = await input.encrypt();
@@ -270,22 +273,24 @@ it("should measure gas for encrypted operations", async function () {
 ### Multi-User Scenarios
 
 ```typescript
-describe("Multi-User Operations", function () {
-  it("should handle multiple users independently", async function () {
+describe('Multi-User Operations', function () {
+  it('should handle multiple users independently', async function () {
     // Alice sets her value
     const aliceInput = this.instances.alice.createEncryptedInput(
       this.contractAddress,
-      this.signers.alice.address,
+      this.signers.alice.address
     );
     aliceInput.add32(100);
     const aliceEnc = await aliceInput.encrypt();
 
-    await this.contract.connect(this.signers.alice).setValue(aliceEnc.handles[0], aliceEnc.inputProof);
+    await this.contract
+      .connect(this.signers.alice)
+      .setValue(aliceEnc.handles[0], aliceEnc.inputProof);
 
     // Bob sets his value
     const bobInput = this.instances.bob.createEncryptedInput(
       this.contractAddress,
-      this.signers.bob.address,
+      this.signers.bob.address
     );
     bobInput.add32(200);
     const bobEnc = await bobInput.encrypt();
@@ -308,13 +313,13 @@ describe("Multi-User Operations", function () {
 ### Time-Based Testing
 
 ```typescript
-it("should handle time-based logic", async function () {
+it('should handle time-based logic', async function () {
   // Set initial state
   await this.contract.connect(this.signers.alice).start();
 
   // Fast forward time
-  await ethers.provider.send("evm_increaseTime", [3600]); // 1 hour
-  await ethers.provider.send("evm_mine", []);
+  await ethers.provider.send('evm_increaseTime', [3600]); // 1 hour
+  await ethers.provider.send('evm_mine', []);
 
   // Test time-dependent behavior
   await this.contract.connect(this.signers.alice).finalize();
@@ -331,19 +336,19 @@ it("should handle time-based logic", async function () {
 
 ```typescript
 // In your test file
-import { setLogLevel } from "@fhevm/hardhat-plugin";
+import { setLogLevel } from '@fhevm/hardhat-plugin';
 
 before(async function () {
-  setLogLevel("debug");
+  setLogLevel('debug');
 });
 ```
 
 ### Inspect Encrypted Handles
 
 ```typescript
-it("should log encrypted handle", async function () {
+it('should log encrypted handle', async function () {
   const handle = await this.contract.getEncryptedValue();
-  console.log("Encrypted handle:", handle);
+  console.log('Encrypted handle:', handle);
 
   // Verify handle is valid (non-zero)
   expect(handle).to.not.equal(0);
@@ -357,11 +362,11 @@ it("should log encrypted handle", async function () {
 let snapshotId: string;
 
 beforeEach(async function () {
-  snapshotId = await ethers.provider.send("evm_snapshot", []);
+  snapshotId = await ethers.provider.send('evm_snapshot', []);
 });
 
 afterEach(async function () {
-  await ethers.provider.send("evm_revert", [snapshotId]);
+  await ethers.provider.send('evm_revert', [snapshotId]);
 });
 ```
 

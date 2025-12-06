@@ -351,7 +351,7 @@ function sumArray(euint32[] memory values) public {
 Always measure gas costs in tests:
 
 ```typescript
-it("should measure gas usage", async function () {
+it('should measure gas usage', async function () {
   const tx = await contract.performOperation();
   const receipt = await tx.wait();
   console.log(`Gas used: ${receipt.gasUsed.toString()}`);
@@ -366,14 +366,14 @@ it("should measure gas usage", async function () {
 Test different approaches:
 
 ```typescript
-describe("Gas Optimization", function () {
-  it("approach A gas usage", async function () {
+describe('Gas Optimization', function () {
+  it('approach A gas usage', async function () {
     const tx = await contract.approachA();
     const receipt = await tx.wait();
     console.log(`Approach A: ${receipt.gasUsed.toString()}`);
   });
 
-  it("approach B gas usage", async function () {
+  it('approach B gas usage', async function () {
     const tx = await contract.approachB();
     const receipt = await tx.wait();
     console.log(`Approach B: ${receipt.gasUsed.toString()}`);
@@ -441,4 +441,3 @@ Optimizing FHEVM contracts requires:
 - Regular gas measurement
 
 Always profile and measure to find the best optimizations for your specific use case.
-

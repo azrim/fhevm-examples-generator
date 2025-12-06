@@ -86,7 +86,7 @@ solidity: {
 **Solution**: Ensure plugin is imported in `hardhat.config.ts`:
 
 ```typescript
-import "@fhevm/hardhat-plugin";
+import '@fhevm/hardhat-plugin';
 ```
 
 ## Runtime Errors
@@ -179,7 +179,7 @@ euint32 public counter; // Will be invalid handle
 2. Add timeout to test:
 
 ```typescript
-it("should decrypt value", async function () {
+it('should decrypt value', async function () {
   this.timeout(10000); // 10 second timeout
 
   const handle = await contract.getValue();
@@ -195,10 +195,10 @@ it("should decrypt value", async function () {
 **Solution**: Ensure proper initialization:
 
 ```typescript
-import { createInstances } from "../instance";
-import { getSigners, initSigners } from "../signers";
+import { createInstances } from '../instance';
+import { getSigners, initSigners } from '../signers';
 
-describe("MyContract", function () {
+describe('MyContract', function () {
   before(async function () {
     await initSigners(); // Must be called first
     this.signers = await getSigners();
@@ -305,15 +305,15 @@ See [Gas Optimization](../best-practices/gas-optimization.md) for more tips.
 
 ```typescript
 // Use fixtures for faster setup
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
+import { loadFixture } from '@nomicfoundation/hardhat-network-helpers';
 
-describe("MyContract", function () {
+describe('MyContract', function () {
   async function deployFixture() {
     // Setup code
     return { contract, signers };
   }
 
-  it("test 1", async function () {
+  it('test 1', async function () {
     const { contract } = await loadFixture(deployFixture);
     // Test code
   });
@@ -335,10 +335,10 @@ npx hardhat test --parallel
 **Solution**: Ensure proper types are imported:
 
 ```typescript
-import type { Signers } from "../signers";
-import type { FhevmInstance } from "fhevmjs";
+import type { Signers } from '../signers';
+import type { FhevmInstance } from 'fhevmjs';
 
-declare module "mocha" {
+declare module 'mocha' {
   export interface Context {
     signers: Signers;
     instances: FhevmInstance;
@@ -385,7 +385,7 @@ curl https://devnet.zama.ai
 
 ```typescript
 await contract.setValue(value, proof, {
-  gasPrice: ethers.parseUnits("50", "gwei"),
+  gasPrice: ethers.parseUnits('50', 'gwei'),
 });
 ```
 
@@ -471,4 +471,3 @@ When reporting issues, include:
 - Steps to reproduce
 
 This helps maintainers diagnose and fix issues quickly.
-

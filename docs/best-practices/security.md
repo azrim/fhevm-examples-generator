@@ -330,8 +330,8 @@ function checkBalance(address user) public view returns (bool) {
 Always test security-critical functionality:
 
 ```typescript
-describe("Security Tests", function () {
-  it("should prevent unauthorized access", async function () {
+describe('Security Tests', function () {
+  it('should prevent unauthorized access', async function () {
     // Alice sets her value
     await contract.connect(alice).setValue(encryptedValue);
 
@@ -339,7 +339,7 @@ describe("Security Tests", function () {
     await expect(instances.bob.decrypt(contractAddress, aliceHandle)).to.be.rejected;
   });
 
-  it("should validate input proof signer", async function () {
+  it('should validate input proof signer', async function () {
     const input = instances.alice.createEncryptedInput(contractAddress, alice.address);
     input.add32(42);
     const enc = await input.encrypt();
