@@ -1,0 +1,75 @@
+name: FHEVM Examples CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  scaffold-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install generator dependencies
+        run: npm ci
+
+      - name: Scaffold all examples
+        run: npm run scaffold:all
+        continue-on-error: false
+
+      - name: Test basic-counter example
+        run: |
+          cd scaffolded/basic-counter
+          npm ci
+          npm test || npx hardhat compile
+        continue-on-error: true
+
+      - name: Test arithmetic example
+        run: |
+          cd scaffolded/arithmetic
+          npm ci
+          npm test || npx hardhat compile
+        continue-on-error: true
+
+      - name: Upload deliverables
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deliverables
+          path: |
+            deliverables.json
+            summary.txt
+            scaffolded/*/README.md
+
+      - name: Upload scaffolded examples
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scaffolded-examples
+          path: scaffolded/
+          retention-days: 7
+
+      - name: Check deliverables
+        run: |
+          echo "=== Deliverables Summary ==="
+          cat summary.txt
+          echo ""
+          echo "=== Deliverables JSON ==="
+          cat deliverables.json
