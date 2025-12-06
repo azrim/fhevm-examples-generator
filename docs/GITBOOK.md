@@ -72,18 +72,21 @@ Update the table of contents to organize examples:
 ```markdown
 # Table of contents
 
-* [Introduction](README.md)
+- [Introduction](README.md)
 
 ## Getting Started
-* [Basic Counter](basic-counter.md)
+
+- [Basic Counter](basic-counter.md)
 
 ## Advanced
-* [Blind Auction](blind-auction.md)
+
+- [Blind Auction](blind-auction.md)
 ```
 
 ### Edit README.md
 
 Customize the homepage with:
+
 - Project overview
 - Getting started guide
 - Key concepts

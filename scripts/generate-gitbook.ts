@@ -27,8 +27,7 @@ async function generateGitBook() {
     const readmePath = path.join(SCAFFOLDED_DIR, exampleName, 'README.md');
 
     if (await fs.pathExists(readmePath)) {
-      // Read README to extract category from content
-      const content = await fs.readFile(readmePath, 'utf-8');
+      // Extract category from example name
       const category = extractCategory(exampleName);
 
       examples.push({

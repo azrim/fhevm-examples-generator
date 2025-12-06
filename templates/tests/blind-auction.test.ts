@@ -56,6 +56,4 @@ describe('BlindAuction', function () {
 
     expect(auction.endAuction).to.be.a('function');
   });
-
-
 });

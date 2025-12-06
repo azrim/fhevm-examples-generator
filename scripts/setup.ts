@@ -48,7 +48,7 @@ async function setup() {
         cwd: BASE_TEMPLATE_DIR,
       });
       console.log('\n✅ Dependencies installed');
-    } catch (npmErr) {
+    } catch {
       console.warn('\n⚠️  Failed to install dependencies in base-template');
       console.warn('   Scaffolding will still work but will be slower');
     }

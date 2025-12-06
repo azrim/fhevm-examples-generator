@@ -5,7 +5,9 @@ Demonstrates a confidential ERC20 token with encrypted balances and transfers
 ## Advanced Examples
 
 ### Confidential Token Standard
+
 This example shows how to implement ERC-7984 confidential tokens:
+
 - Encrypted token balances that remain private
 - Confidential transfers between addresses
 - Approval and transferFrom with encrypted amounts
@@ -33,7 +35,7 @@ Demonstrates a confidential ERC20 token with encrypted balances and transfers
 This example demonstrates:
 
 - **Advanced Examples**: Confidential Token Standard
-This example shows how to implement ERC-7984 confidential tokens:
+  This example shows how to implement ERC-7984 confidential tokens:
 - Encrypted token balances that remain private
 - Confidential transfers between addresses
 - Approval and transferFrom with encrypted amounts

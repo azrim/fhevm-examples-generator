@@ -35,27 +35,35 @@ npx hardhat compile
 ## Examples by Category
 
 ### Getting Started
+
 - [Basic Counter](basic-counter.md) - Simple encrypted counter demonstrating FHE basics
 
 ### Operations
+
 - [Arithmetic](arithmetic.md) - Add, subtract, and multiply encrypted values
 
 ### Comparisons
+
 - [Equality](equality.md) - Compare encrypted values and conditional selection
 
 ### Encryption
+
 - [Encrypt Single Value](encrypt-single-value.md) - Single value encryption with input proofs
 
 ### Permissions
+
 - [Access Control](access-control.md) - Managing permissions for encrypted data
 
 ### Security
+
 - [Input Proofs](input-proofs.md) - Input proof validation and best practices
 
 ### Advanced
+
 - [Blind Auction](blind-auction.md) - Sealed-bid auction with encrypted bids
 
 ### Tokens
+
 - [OpenZeppelin ERC-7984](openzeppelin-erc7984.md) - Confidential ERC20 token implementation
 
 ## Key Concepts
@@ -63,12 +71,14 @@ npx hardhat compile
 ### Encrypted Types
 
 FHEVM provides encrypted integer types:
+
 - `euint8`, `euint16`, `euint32`, `euint64` - Encrypted unsigned integers
 - `ebool` - Encrypted boolean
 
 ### FHE Operations
 
 Perform operations on encrypted data:
+
 - **Arithmetic**: `FHE.add()`, `FHE.sub()`, `FHE.mul()`
 - **Comparison**: `FHE.eq()`, `FHE.ne()`, `FHE.lt()`, `FHE.gt()`
 - **Logical**: `FHE.and()`, `FHE.or()`, `FHE.not()`
@@ -77,6 +87,7 @@ Perform operations on encrypted data:
 ### Permission System
 
 Control access to encrypted data:
+
 - `FHE.allowThis()` - Grant contract access
 - `FHE.allow()` - Grant user access
 - `FHE.allowTransient()` - Temporary access
@@ -84,6 +95,7 @@ Control access to encrypted data:
 ### Input Proofs
 
 Validate encrypted inputs:
+
 - `FHE.fromExternal()` - Convert external encrypted input with proof
 - Zero-knowledge proofs ensure correct encryption binding
 

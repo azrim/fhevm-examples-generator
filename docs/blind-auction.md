@@ -5,7 +5,9 @@ Demonstrates a sealed-bid auction where bids remain encrypted until the auction 
 ## Advanced Examples
 
 ### Sealed-Bid Auction
+
 This example shows how to build a blind auction where:
+
 - Bidders submit encrypted bids that remain private
 - The highest bid is tracked without revealing individual bids
 - The auction can be ended to reveal the winner
@@ -32,7 +34,7 @@ Demonstrates a sealed-bid auction where bids remain encrypted until the auction 
 This example demonstrates:
 
 - **Advanced Examples**: Sealed-Bid Auction
-This example shows how to build a blind auction where:
+  This example shows how to build a blind auction where:
 - Bidders submit encrypted bids that remain private
 - The highest bid is tracked without revealing individual bids
 - The auction can be ended to reveal the winner

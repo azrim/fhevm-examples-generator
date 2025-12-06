@@ -165,7 +165,9 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
           let fileCount = 0;
           const progressInterval = setInterval(() => {
             fileCount += 100; // Estimate
-            process.stdout.write(`\r   📦 Installing dependencies from cache... ${fileCount} files`);
+            process.stdout.write(
+              `\r   📦 Installing dependencies from cache... ${fileCount} files`
+            );
           }, 100);
 
           await fs.copy(baseNodeModules, targetNodeModules, {
@@ -174,8 +176,10 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
 
           clearInterval(progressInterval);
           const duration = ((Date.now() - startTime) / 1000).toFixed(1);
-          console.log(`\r   ✅ Dependencies installed from cache (${duration}s)                    `);
-        } catch (error: any) {
+          console.log(
+            `\r   ✅ Dependencies installed from cache (${duration}s)                    `
+          );
+        } catch {
           console.error(`\n   ⚠️  Cache copy failed, running npm ci...`);
           try {
             await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });

@@ -4,50 +4,50 @@
     "path": "D:\\Project\\zama\\scaffolded\\basic-counter",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T15:04:07.672Z"
+    "timestamp": "2025-12-06T15:15:25.204Z"
   },
   {
     "name": "arithmetic",
     "path": "D:\\Project\\zama\\scaffolded\\arithmetic",
     "success": true,
-    "testsPassed": true,
-    "timestamp": "2025-12-06T14:54:33.660Z"
+    "testsPassed": false,
+    "timestamp": "2025-12-06T15:16:00.537Z",
+    "error": "Tests and compilation failed: Command failed with exit code 3221226505: npm test"
   },
   {
     "name": "equality",
     "path": "D:\\Project\\zama\\scaffolded\\equality",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:55:23.110Z"
+    "timestamp": "2025-12-06T15:16:49.732Z"
   },
   {
     "name": "encrypt-single-value",
     "path": "D:\\Project\\zama\\scaffolded\\encrypt-single-value",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:56:29.872Z"
+    "timestamp": "2025-12-06T15:17:24.790Z"
   },
   {
     "name": "access-control",
     "path": "D:\\Project\\zama\\scaffolded\\access-control",
     "success": true,
-    "testsPassed": false,
-    "timestamp": "2025-12-06T14:57:12.878Z",
-    "error": "Tests and compilation failed: Command failed with exit code 3221226505: npm test"
+    "testsPassed": true,
+    "timestamp": "2025-12-06T15:18:18.116Z"
   },
   {
     "name": "input-proofs",
     "path": "D:\\Project\\zama\\scaffolded\\input-proofs",
     "success": true,
     "testsPassed": true,
-    "timestamp": "2025-12-06T14:58:11.772Z"
+    "timestamp": "2025-12-06T15:19:01.405Z"
   },
   {
     "name": "blind-auction",
     "path": "D:\\Project\\zama\\scaffolded\\blind-auction",
     "success": true,
     "testsPassed": false,
-    "timestamp": "2025-12-06T14:59:10.108Z",
+    "timestamp": "2025-12-06T15:19:45.856Z",
     "error": "Tests and compilation failed: Command failed with exit code 1: npm test"
   },
   {
@@ -55,7 +55,43 @@
     "path": "D:\\Project\\zama\\scaffolded\\openzeppelin-erc7984",
     "success": true,
     "testsPassed": false,
-    "timestamp": "2025-12-06T15:00:03.373Z",
+    "timestamp": "2025-12-06T15:20:37.000Z",
     "error": "Tests and compilation failed: Command failed with exit code 1: npm test"
+  },
+  {
+    "name": "test-example",
+    "path": "D:\\Project\\zama\\scaffolded\\test-example",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T15:09:44.036Z"
+  },
+  {
+    "name": "test-fresh",
+    "path": "D:\\Project\\zama\\scaffolded\\test-fresh",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T15:14:57.654Z"
+  },
+  {
+    "name": "blind-auction-test",
+    "path": "D:\\Project\\zama\\scaffolded\\blind-auction-test",
+    "success": true,
+    "testsPassed": false,
+    "timestamp": "2025-12-06T15:23:02.809Z",
+    "error": "Tests and compilation failed: Command failed with exit code 1: npm test"
+  },
+  {
+    "name": "blind-auction-fixed",
+    "path": "D:\\Project\\zama\\scaffolded\\blind-auction-fixed",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T15:25:01.229Z"
+  },
+  {
+    "name": "erc7984-fixed",
+    "path": "D:\\Project\\zama\\scaffolded\\erc7984-fixed",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-06T15:26:10.801Z"
   }
 ]
