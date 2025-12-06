@@ -1,5 +1,5 @@
 FHEVM Examples Generator - Scaffold Summary
-Generated: 2025-12-06T11:32:55.638Z
+Generated: 2025-12-06T12:41:57.961Z
 
 RESULTS:
   ✅ basic-counter
@@ -7,11 +7,12 @@ RESULTS:
   ✅ equality
   ✅ encrypt-single-value
   ✅ access-control
+  ✅ input-proofs
 
 STATISTICS:
-  Successful: 5
+  Successful: 6
   Failed: 0
-  Total: 5
+  Total: 6
 
 REPRODUCTION COMMANDS:
 To reproduce locally, run:

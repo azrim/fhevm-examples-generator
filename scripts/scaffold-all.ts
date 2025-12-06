@@ -76,6 +76,8 @@ async function scaffoldAll() {
         example.testTemplate,
         '--outDir',
         './scaffolded',
+        '--skipInstall',
+        '--skipTests',
       ];
 
       await execa('npx', args, {

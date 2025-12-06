@@ -16,6 +16,8 @@ interface CliOptions {
   testTemplate?: string;
   outDir?: string;
   initGit?: boolean;
+  skipInstall?: boolean;
+  skipTests?: boolean;
 }
 
 interface ScaffoldResult {
@@ -148,34 +150,43 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
       console.log(`      ${commit.hash.substring(0, 7)} ${commit.message}`);
     });
 
-    // Run npm ci
-    console.log(`\n   📦 Running npm ci...`);
-    try {
-      await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
-      console.log(`   ✅ npm ci completed`);
-    } catch (error: any) {
-      console.error(`   ❌ npm ci failed: ${error.message}`);
-      throw new Error(`npm ci failed: ${error.message}`);
+    // Run npm ci (optional)
+    if (!options.skipInstall) {
+      console.log(`\n   📦 Running npm ci...`);
+      try {
+        await execa('npm', ['ci'], { cwd: targetPath, stdio: 'inherit' });
+        console.log(`   ✅ npm ci completed`);
+      } catch (error: any) {
+        console.error(`   ❌ npm ci failed: ${error.message}`);
+        throw new Error(`npm ci failed: ${error.message}`);
+      }
+    } else {
+      console.log(`\n   ⏭️  Skipping npm install`);
     }
 
-    // Run tests
-    console.log(`\n   🧪 Running tests...`);
-    try {
-      await execa('npm', ['test'], { cwd: targetPath, stdio: 'inherit' });
-      console.log(`   ✅ Tests passed`);
-      result.testsPassed = true;
-    } catch (error: any) {
-      console.error(`   ⚠️  Tests failed or require FHE runtime`);
-      console.log(`   📝 Attempting compile-only verification...`);
-
+    // Run tests (optional)
+    if (!options.skipTests && !options.skipInstall) {
+      console.log(`\n   🧪 Running tests...`);
       try {
-        await execa('npx', ['hardhat', 'compile'], { cwd: targetPath, stdio: 'inherit' });
-        console.log(`   ✅ Compilation successful`);
-        result.testsPassed = true; // Consider compile success as pass
-      } catch (compileError: any) {
-        console.error(`   ❌ Compilation failed: ${compileError.message}`);
-        result.error = `Tests and compilation failed: ${error.message}`;
+        await execa('npm', ['test'], { cwd: targetPath, stdio: 'inherit' });
+        console.log(`   ✅ Tests passed`);
+        result.testsPassed = true;
+      } catch (error: any) {
+        console.error(`   ⚠️  Tests failed or require FHE runtime`);
+        console.log(`   📝 Attempting compile-only verification...`);
+
+        try {
+          await execa('npx', ['hardhat', 'compile'], { cwd: targetPath, stdio: 'inherit' });
+          console.log(`   ✅ Compilation successful`);
+          result.testsPassed = true; // Consider compile success as pass
+        } catch (compileError: any) {
+          console.error(`   ❌ Compilation failed: ${compileError.message}`);
+          result.error = `Tests and compilation failed: ${error.message}`;
+        }
       }
+    } else if (options.skipTests) {
+      console.log(`\n   ⏭️  Skipping tests`);
+      result.testsPassed = true; // Mark as passed when skipped
     }
 
     result.success = true;
@@ -220,6 +231,16 @@ const argv = await yargs(hideBin(process.argv))
         describe: 'Initialize git repository',
         type: 'boolean',
         default: true,
+      })
+      .option('skipInstall', {
+        describe: 'Skip npm install step',
+        type: 'boolean',
+        default: false,
+      })
+      .option('skipTests', {
+        describe: 'Skip running tests',
+        type: 'boolean',
+        default: false,
       });
   })
   .help()
