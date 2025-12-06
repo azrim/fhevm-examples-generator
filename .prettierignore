@@ -1,0 +1,8 @@
+node_modules/
+dist/
+scaffolded/
+base-template/
+coverage/
+*.log
+package-lock.json
+deliverables.json
