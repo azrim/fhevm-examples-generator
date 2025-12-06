@@ -203,7 +203,11 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
       if (!options.skipTests) {
         console.log(`\n   🧪 Running tests...`);
         try {
-          await execa('npm', ['test'], { cwd: targetPath, stdio: 'inherit' });
+          await execa('npm', ['test'], {
+            cwd: targetPath,
+            stdio: 'inherit',
+            timeout: 120000, // 2 minute timeout
+          });
           console.log(`   ✅ Tests passed`);
           result.testsPassed = true;
         } catch (error: any) {
@@ -211,7 +215,11 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
           console.log(`   📝 Attempting compile-only verification...`);
 
           try {
-            await execa('npx', ['hardhat', 'compile'], { cwd: targetPath, stdio: 'inherit' });
+            await execa('npx', ['hardhat', 'compile'], {
+              cwd: targetPath,
+              stdio: 'inherit',
+              timeout: 60000, // 1 minute timeout
+            });
             console.log(`   ✅ Compilation successful`);
             result.testsPassed = true; // Consider compile success as pass
           } catch (compileError: any) {
