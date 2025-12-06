@@ -96,14 +96,8 @@ jobs:
             deliverables.json
             summary.txt
             scaffolded/*/README.md
-
-      - name: Upload scaffolded examples
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: scaffolded-examples
-          path: scaffolded/
-          retention-days: 7
+            scaffolded/*/contracts/*.sol
+            scaffolded/*/test/*.test.ts
 
       - name: Check deliverables
         run: |
