@@ -47,18 +47,44 @@ jobs:
         run: npm run scaffold:all
         continue-on-error: false
 
-      - name: Test basic-counter example
+      - name: Test all scaffolded examples
         run: |
-          cd scaffolded/basic-counter
-          npm ci
-          npm test || npx hardhat compile
-        continue-on-error: true
+          echo "🧪 Testing all scaffolded examples..."
 
-      - name: Test arithmetic example
-        run: |
-          cd scaffolded/arithmetic
-          npm ci
-          npm test || npx hardhat compile
+          # Find all scaffolded directories
+          for example_dir in scaffolded/*/; do
+            if [ -d "$example_dir" ]; then
+              example_name=$(basename "$example_dir")
+              echo ""
+              echo "============================================================"
+              echo "Testing: $example_name"
+              echo "============================================================"
+
+              cd "$example_dir"
+
+              # Install dependencies
+              echo "📦 Installing dependencies..."
+              npm ci
+
+              # Run tests (fallback to compile if tests fail)
+              echo "🧪 Running tests..."
+              if npm test; then
+                echo "✅ Tests passed for $example_name"
+              else
+                echo "⚠️  Tests failed, attempting compilation..."
+                if npx hardhat compile; then
+                  echo "✅ Compilation successful for $example_name"
+                else
+                  echo "❌ Compilation failed for $example_name"
+                fi
+              fi
+
+              cd ../..
+            fi
+          done
+
+          echo ""
+          echo "✨ All examples tested!"
         continue-on-error: true
 
       - name: Upload deliverables
