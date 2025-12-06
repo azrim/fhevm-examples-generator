@@ -160,32 +160,33 @@ async function scaffoldExample(options: CliOptions): Promise<ScaffoldResult> {
         console.error(`   ❌ npm ci failed: ${error.message}`);
         throw new Error(`npm ci failed: ${error.message}`);
       }
-    } else {
-      console.log(`\n   ⏭️  Skipping npm install`);
-    }
 
-    // Run tests (optional)
-    if (!options.skipTests && !options.skipInstall) {
-      console.log(`\n   🧪 Running tests...`);
-      try {
-        await execa('npm', ['test'], { cwd: targetPath, stdio: 'inherit' });
-        console.log(`   ✅ Tests passed`);
-        result.testsPassed = true;
-      } catch (error: any) {
-        console.error(`   ⚠️  Tests failed or require FHE runtime`);
-        console.log(`   📝 Attempting compile-only verification...`);
-
+      // Run tests only if install succeeded and tests not skipped
+      if (!options.skipTests) {
+        console.log(`\n   🧪 Running tests...`);
         try {
-          await execa('npx', ['hardhat', 'compile'], { cwd: targetPath, stdio: 'inherit' });
-          console.log(`   ✅ Compilation successful`);
-          result.testsPassed = true; // Consider compile success as pass
-        } catch (compileError: any) {
-          console.error(`   ❌ Compilation failed: ${compileError.message}`);
-          result.error = `Tests and compilation failed: ${error.message}`;
+          await execa('npm', ['test'], { cwd: targetPath, stdio: 'inherit' });
+          console.log(`   ✅ Tests passed`);
+          result.testsPassed = true;
+        } catch (error: any) {
+          console.error(`   ⚠️  Tests failed or require FHE runtime`);
+          console.log(`   📝 Attempting compile-only verification...`);
+
+          try {
+            await execa('npx', ['hardhat', 'compile'], { cwd: targetPath, stdio: 'inherit' });
+            console.log(`   ✅ Compilation successful`);
+            result.testsPassed = true; // Consider compile success as pass
+          } catch (compileError: any) {
+            console.error(`   ❌ Compilation failed: ${compileError.message}`);
+            result.error = `Tests and compilation failed: ${error.message}`;
+          }
         }
+      } else {
+        console.log(`\n   ⏭️  Skipping tests`);
+        result.testsPassed = true; // Mark as passed when skipped
       }
-    } else if (options.skipTests) {
-      console.log(`\n   ⏭️  Skipping tests`);
+    } else {
+      console.log(`\n   ⏭️  Skipping npm install and tests`);
       result.testsPassed = true; // Mark as passed when skipped
     }
 
