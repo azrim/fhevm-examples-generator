@@ -20,7 +20,7 @@ Data is encrypted client-side before sending to the blockchain:
 ```typescript
 const fhevm = await getFHEVM();
 const input = await fhevm.createEncryptedInput(contractAddress, userAddress);
-input.add32(42);  // Encrypt the number 42
+input.add32(42); // Encrypt the number 42
 const encrypted = await input.encrypt();
 ```
 
@@ -49,33 +49,37 @@ console.log(decrypted); // 30
 
 FHEVM provides encrypted versions of common types:
 
-| Type | Description | Range |
-|------|-------------|-------|
-| `euint8` | 8-bit unsigned integer | 0 to 255 |
-| `euint16` | 16-bit unsigned integer | 0 to 65,535 |
+| Type      | Description             | Range              |
+| --------- | ----------------------- | ------------------ |
+| `euint8`  | 8-bit unsigned integer  | 0 to 255           |
+| `euint16` | 16-bit unsigned integer | 0 to 65,535        |
 | `euint32` | 32-bit unsigned integer | 0 to 4,294,967,295 |
-| `euint64` | 64-bit unsigned integer | 0 to 2^64-1 |
-| `ebool` | Boolean | true/false |
+| `euint64` | 64-bit unsigned integer | 0 to 2^64-1        |
+| `ebool`   | Boolean                 | true/false         |
 
 ### Supported Operations
 
 #### Arithmetic
+
 - Addition: `FHE.add(a, b)`
 - Subtraction: `FHE.sub(a, b)`
 - Multiplication: `FHE.mul(a, b)`
 
 #### Comparison
+
 - Equal: `FHE.eq(a, b)`
 - Not equal: `FHE.ne(a, b)`
 - Less than: `FHE.lt(a, b)`
 - Greater than: `FHE.gt(a, b)`
 
 #### Logical
+
 - AND: `FHE.and(a, b)`
 - OR: `FHE.or(a, b)`
 - NOT: `FHE.not(a)`
 
 #### Selection
+
 - Conditional: `FHE.select(condition, ifTrue, ifFalse)`
 
 ## Encryption Binding
@@ -88,6 +92,7 @@ euint32 value = FHE.fromExternal(inputValue, inputProof);
 ```
 
 This prevents:
+
 - Replay attacks
 - Cross-contract attacks
 - Unauthorized access
@@ -120,11 +125,11 @@ FHE.allowTransient(encryptedValue, userAddress);
 
 FHE operations are more expensive than regular operations:
 
-| Operation | Approximate Gas |
-|-----------|----------------|
-| `FHE.add()` | ~50,000 |
-| `FHE.mul()` | ~150,000 |
-| `FHE.eq()` | ~30,000 |
+| Operation   | Approximate Gas |
+| ----------- | --------------- |
+| `FHE.add()` | ~50,000         |
+| `FHE.mul()` | ~150,000        |
+| `FHE.eq()`  | ~30,000         |
 
 Plan your contract design accordingly!
 

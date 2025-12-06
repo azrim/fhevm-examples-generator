@@ -36,6 +36,7 @@ FHEVM is actively developed by Zama. Check the [official documentation](https://
 ### Can I use existing Solidity contracts?
 
 Not directly. You need to:
+
 1. Replace regular types with encrypted types (`uint32` → `euint32`)
 2. Use FHE operations (`+` → `FHE.add()`)
 3. Manage permissions (`FHE.allow()`)
@@ -89,6 +90,7 @@ Use `allowTransient()` for intermediate values that don't need persistent access
 ### How do I test FHE contracts?
 
 Examples include test files showing:
+
 1. How to create encrypted inputs
 2. How to call contract functions
 3. How to decrypt and verify results
@@ -100,6 +102,7 @@ No! Tests run locally with Hardhat. For deployment, check Zama's documentation f
 ### Why do my tests fail?
 
 Common issues:
+
 - Missing `FHE.allowThis()`
 - Missing `FHE.allow()`
 - Wrong signer for encrypted input
@@ -118,6 +121,7 @@ The encrypted input proof doesn't match the signer or contract address.
 ### "Cannot find name 'FHE'" error
 
 Missing import:
+
 ```solidity
 import {FHE, euint32} from "@fhevm/solidity/lib/FHE.sol";
 ```

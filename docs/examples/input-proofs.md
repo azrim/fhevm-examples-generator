@@ -74,8 +74,9 @@ Input proofs are **zero-knowledge proofs** that validate encrypted inputs withou
 ### Why They Matter
 
 Without input proofs, attackers could:
+
 - **Replay attacks** - Reuse encrypted values from other transactions
-- **Cross-contract att* - Use values from other contracts
+- \*_Cross-contract att_ - Use values from other contracts
 - **Impersonation** - Use values encrypted for other users
 
 ## Generating Input Proofs
@@ -92,8 +93,8 @@ const userAddr = await signer.getAddress();
 // Create encrypted input
 const fhevm = await getFHEVM();
 const input = await fhevm.createEncryptedInput(
-  contractAddr,  // Binds to this contract
-  userAddr       // Binds to this user
+  contractAddr, // Binds to this contract
+  userAddr // Binds to this user
 );
 
 // Add values to encrypt
@@ -112,17 +113,14 @@ const encrypted = await input.encrypt();
 
 ```typescript
 // Single value
-await contract.storeWithProof(
-  encrypted.handles[0],
-  encrypted.inputProof
-);
+await contract.storeWithProof(encrypted.handles[0], encrypted.inputProof);
 
 // Multiple values (same proof)
 await contract.addWithProofs(
   encrypted.handles[0],
   encrypted.handles[1],
   encrypted.inputProof,
-  encrypted.inputProof  // Same proof for both
+  encrypted.inputProof // Same proof for both
 );
 ```
 
@@ -188,7 +186,7 @@ await contract.process(
   encrypted.handles[0],
   encrypted.handles[1],
   encrypted.handles[2],
-  encrypted.inputProof  // One proof for all
+  encrypted.inputProof // One proof for all
 );
 ```
 
@@ -202,7 +200,7 @@ const batch2 = await input2.encrypt();
 // Don't do this!
 await contract.process(
   batch1.handles[0],
-  batch2.handles[0],  // Different batch!
+  batch2.handles[0], // Different batch!
   batch1.inputProof
 );
 ```
@@ -220,7 +218,7 @@ const aliceEncrypted = await aliceInput.encrypt();
 // ❌ Bob tries to use Alice's input - FAILS!
 await contract.connect(bob).store(
   aliceEncrypted.handles[0],
-  aliceEncrypted.inputProof  // Bound to Alice, not Bob!
+  aliceEncrypted.inputProof // Bound to Alice, not Bob!
 );
 ```
 
@@ -235,7 +233,7 @@ const encrypted = await inputA.encrypt();
 // ❌ Try to use in Contract B - FAILS!
 await contractB.store(
   encrypted.handles[0],
-  encrypted.inputProof  // Bound to Contract A!
+  encrypted.inputProof // Bound to Contract A!
 );
 ```
 
@@ -255,40 +253,25 @@ describe('Input Proof Validation', function () {
     const [alice, bob] = await ethers.getSigners();
 
     // Alice creates input
-    const input = await fhevm.createEncryptedInput(
-      await contract.getAddress(),
-      alice.address
-    );
+    const input = await fhevm.createEncryptedInput(await contract.getAddress(), alice.address);
     input.add32(42);
     const encrypted = await input.encrypt();
 
     // Bob tries to use it - should fail
-    await expect(
-      contract.connect(bob).store(
-        encrypted.handles[0],
-        encrypted.inputProof
-      )
-    ).to.be.reverted;
+    await expect(contract.connect(bob).store(encrypted.handles[0], encrypted.inputProof)).to.be
+      .reverted;
   });
 
   it('Should reject wrong contract', async function () {
     const [signer] = await ethers.getSigners();
 
     // Create input for contract A
-    const input = await fhevm.createEncryptedInput(
-      await contractA.getAddress(),
-      signer.address
-    );
+    const input = await fhevm.createEncryptedInput(await contractA.getAddress(), signer.address);
     input.add32(42);
     const encrypted = await input.encrypt();
 
     // Try to use in contract B - should fail
-    await expect(
-      contractB.store(
-        encrypted.handles[0],
-        encrypted.inputProof
-      )
-    ).to.be.reverted;
+    await expect(contractB.store(encrypted.handles[0], encrypted.inputProof)).to.be.reverted;
   });
 });
 ```
@@ -297,4 +280,3 @@ describe('Input Proof Validation', function () {
 
 - [Blind Auction](blind-auction.md) - Advanced example using input proofs
 - [Security Guidelines](../best-practices/security.md) - More security patterns
-

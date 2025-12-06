@@ -78,18 +78,12 @@ describe('BasicCounter', function () {
 
     // Create encrypted input
     const fhevm = await getFHEVM();
-    const input = await fhevm.createEncryptedInput(
-      await counter.getAddress(),
-      signer.address
-    );
+    const input = await fhevm.createEncryptedInput(await counter.getAddress(), signer.address);
     input.add32(5);
     const encryptedInput = await input.encrypt();
 
     // Increment
-    await counter.increment(
-      encryptedInput.handles[0],
-      encryptedInput.inputProof
-    );
+    await counter.increment(encryptedInput.handles[0], encryptedInput.inputProof);
 
     // Verify (in real scenario, you'd decrypt to verify)
     expect(await counter.getCount()).to.not.be.undefined;

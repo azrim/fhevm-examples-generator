@@ -29,16 +29,16 @@ npm test
 
 This hub contains 8 production-ready examples covering fundamental to advanced FHEVM concepts:
 
-| Example | Difficulty | Concepts |
-|---------|-----------|----------|
-| Basic Counter | Beginner | Encrypted state, basic operations |
-| Arithmetic | Beginner | Add, subtract, multiply on encrypted values |
-| Equality | Beginner | Comparisons and conditional selection |
-| Encrypt Single Value | Intermediate | Input proofs, encryption binding |
-| Access Control | Intermediate | Permission management (allow, allowThis) |
-| Input Proofs | Intermediate | Zero-knowledge proofs, validation |
-| Blind Auction | Advanced | Sealed-bid auction, encrypted bids |
-| Confidential ERC20 | Advanced | ERC-7984 token standard |
+| Example              | Difficulty   | Concepts                                    |
+| -------------------- | ------------ | ------------------------------------------- |
+| Basic Counter        | Beginner     | Encrypted state, basic operations           |
+| Arithmetic           | Beginner     | Add, subtract, multiply on encrypted values |
+| Equality             | Beginner     | Comparisons and conditional selection       |
+| Encrypt Single Value | Intermediate | Input proofs, encryption binding            |
+| Access Control       | Intermediate | Permission management (allow, allowThis)    |
+| Input Proofs         | Intermediate | Zero-knowledge proofs, validation           |
+| Blind Auction        | Advanced     | Sealed-bid auction, encrypted bids          |
+| Confidential ERC20   | Advanced     | ERC-7984 token standard                     |
 
 ## Key Concepts
 

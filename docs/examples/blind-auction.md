@@ -72,7 +72,7 @@ contract BlindAuction is ZamaEthereumConfig {
 // Deploy with 1 hour bidding time
 const auction = await BlindAuction.deploy(
   beneficiary.address,
-  3600  // 1 hour in seconds
+  3600 // 1 hour in seconds
 );
 ```
 
@@ -80,38 +80,26 @@ const auction = await BlindAuction.deploy(
 
 ```typescript
 // Alice bids 100 (encrypted)
-const aliceInput = await fhevm.createEncryptedInput(
-  await auction.getAddress(),
-  alice.address
-);
+const aliceInput = await fhevm.createEncryptedInput(await auction.getAddress(), alice.address);
 aliceInput.add32(100);
 const aliceEncrypted = await aliceInput.encrypt();
 
-await auction.connect(alice).bid(
-  aliceEncrypted.handles[0],
-  aliceEncrypted.inputProof
-);
+await auction.connect(alice).bid(aliceEncrypted.handles[0], aliceEncrypted.inputProof);
 
 // Bob bids 150 (encrypted)
-const bobInput = await fhevm.credInput(
-  await auction.getAddress(),
-  bob.address
-);
+const bobInput = await fhevm.credInput(await auction.getAddress(), bob.address);
 bobInput.add32(150);
 const bobEncrypted = await bobInput.encrypt();
 
-await auction.connect(bob).bid(
-  bobEncrypted.handles[0],
-  bobEncrypted.inputProof
-);
+await auction.connect(bob).bid(bobEncrypted.handles[0], bobEncrypted.inputProof);
 ```
 
 ### 3. Ending Auction
 
 ```typescript
 // Wait for auction to end
-await ethers.provider.send("evm_increaseTime", [3600]);
-await ethers.provider.send("evm_mine");
+await ethers.provider.send('evm_increaseTime', [3600]);
+await ethers.provider.send('evm_mine');
 
 // End auction
 await auction.endAuction();
@@ -126,13 +114,10 @@ const aliceBid = await fhevm.decrypt(
   await auction.getBid(alice.address)
 );
 
-const bobBid = await fhevm.decrypt(
-  await auction.getAddress(),
-  await auction.getBid(bob.address)
-);
+const bobBid = await fhevm.decrypt(await auction.getAddress(), await auction.getBid(bob.address));
 
-console.log('Alice bid:', aliceBid);  // 100
-console.log('Bob bid:', bobBid);      // 150
+console.log('Alice bid:', aliceBid); // 100
+console.log('Bob bid:', bobBid); // 150
 console.log('Winner: Bob');
 ```
 
@@ -158,6 +143,7 @@ Ensures bids can only be placed during the bidding period.
 ### Sealed-Bid Mechanism
 
 Bids remain encrypted until the auction ends, preventing:
+
 - Bid sniping
 - Strategic bidding based on others' bids
 - Collusion
@@ -235,6 +221,7 @@ ended = true;
 ### Winner Determination
 
 Finding the winner on-chain requires:
+
 1. Comparing all bids (expensive)
 2. Or decrypting bids (reveals amounts)
 
@@ -243,6 +230,7 @@ Finding the winner on-chain requires:
 ### Payment Integration
 
 This example doesn't include payment. In production:
+
 - Lock funds when bidding
 - Refund losers
 - Transfer to winner
@@ -254,41 +242,30 @@ describe('BlindAuction', function () {
   it('Should accept bids during auction', async function () {
     const auction = await deploy(beneficiary, 3600);
 
-    const input = await fhevm.createEncryptedInput(
-      await auction.getAddress(),
-      bidder.address
-    );
+    const input = await fhevm.createEncryptedInput(await auction.getAddress(), bidder.address);
     input.add32(100);
     const encrypted = await input.encrypt();
 
-    await expect(
-      auction.connect(bidder).bid(
-        encrypted.handles[0],
-        encrypted.inputProof
-      )
-    ).to.emit(auction, 'BidPlaced');
+    await expect(auction.connect(bidder).bid(encrypted.handles[0], encrypted.inputProof)).to.emit(
+      auction,
+      'BidPlaced'
+    );
   });
 
   it('Should reject bids after auction ends', async function () {
     const auction = await deploy(beneficiary, 3600);
 
     // Fast forward time
-    await ethers.provider.send("evm_increaseTime", [3600]);
-    await ethers.provider.send("evm_mine");
+    await ethers.provider.send('evm_increaseTime', [3600]);
+    await ethers.provider.send('evm_mine');
 
-    const input = await fhevm.createEncryptedInput(
-      await auction.getAddress(),
-      bidder.address
-    );
+    const input = await fhevm.createEncryptedInput(await auction.getAddress(), bidder.address);
     input.add32(100);
     const encrypted = await input.encrypt();
 
     await expect(
-      auction.connect(bidder).bid(
-        encrypted.handles[0],
-        encrypted.inputProof
-      )
-    ).to.be.revertedWith("Auction ended");
+      auction.connect(bidder).bid(encrypted.handles[0], encrypted.inputProof)
+    ).to.be.revertedWith('Auction ended');
   });
 });
 ```
@@ -297,4 +274,3 @@ describe('BlindAuction', function () {
 
 - [Confidential ERC20](confidential-erc20.md) - Token standard
 - [Best Practices](../best-practices/security.md) - Security patterns
-

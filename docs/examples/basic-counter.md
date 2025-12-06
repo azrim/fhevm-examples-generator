@@ -51,28 +51,36 @@ contract BasicCounter is ZamaEthereumConfig {
 ## Key Features
 
 ### Encrypted State
+
 ```solidity
 euint32 private _count;
 ```
+
 The counter value is always encrypted - no one can see the actual count!
 
 ### Input Validation
+
 ```solidity
 euint32 encryptedValue = FHE.fromExternal(inputEuint32, inputProof);
 ```
+
 Input proofs ensure the encrypted value is correctly bound to the contract and user.
 
 ### FHE Operations
+
 ```solidity
 _count = FHE.add(_count, encryptedValue);
 ```
+
 Addition happens on encrypted values without decryption.
 
 ### Permission Management
+
 ```solidity
 FHE.allowThis(_count);           // Contract can access
 FHE.allow(_count, msg.sender);   // User can access
 ```
+
 Both permissions are required for proper functionality.
 
 ## Usage
@@ -84,10 +92,7 @@ const counter = await Counter.deploy();
 
 // Create encrypted input
 const fhevm = await getFHEVM();
-const input = await fhevm.createEncryptedInput(
-  await counter.getAddress(),
-  signer.address
-);
+const input = await fhevm.createEncryptedInput(await counter.getAddress(), signer.address);
 input.add32(5);
 const encrypted = await input.encrypt();
 
@@ -111,17 +116,20 @@ npm test
 ## Common Pitfalls
 
 ### ❌ Forgetting allowThis
+
 ```solidity
 FHE.allow(_count, msg.sender);  // Missing allowThis!
 ```
 
 ### ✅ Correct Pattern
+
 ```solidity
 FHE.allowThis(_count);
 FHE.allow(_count, msg.sender);
 ```
 
 ### ❌ Wrong Signer
+
 ```typescript
 // Alice creates input
 const input = await fhevm.createEncryptedInput(contractAddr, alice.address);
@@ -131,6 +139,7 @@ await contract.connect(bob).increment(input.handles[0], input.inputProof);
 ```
 
 ### ✅ Correct Pattern
+
 ```typescript
 // Alice creates and uses her own input
 const input = await fhevm.createEncryptedInput(contractAddr, alice.address);

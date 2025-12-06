@@ -124,12 +124,12 @@ ERC-7984 is the confidential token standard that extends ERC-20 with encrypted b
 
 ### Key Differences from ERC-20
 
-| Feature | ERC-20 | ERC-7984 |
-|---------|--------|----------|
-| Balances | `uint256` (public) | `euint32` (encrypted) |
-| Transfers | Amount visible | Amount hidden |
-| Allowances | Amount visible | Amount hidden |
-| Total Supply | Public | Encrypted |
+| Feature      | ERC-20             | ERC-7984              |
+| ------------ | ------------------ | --------------------- |
+| Balances     | `uint256` (public) | `euint32` (encrypted) |
+| Transfers    | Amount visible     | Amount hidden         |
+| Allowances   | Amount visible     | Amount hidden         |
+| Total Supply | Public             | Encrypted             |
 
 ## Usage Examples
 
@@ -144,55 +144,35 @@ await token.mint(alice.address, 1000);
 
 ```typescript
 // Alice transfers 100 tokens to Bob (encrypted)
-const input = await fhevm.createEncryptedInput(
-  await token.getAddress(),
-  alice.address
-);
+const input = await fhevm.createEncryptedInput(await token.getAddress(), alice.address);
 input.add32(100);
 const encrypted = await input.encrypt();
 
-await token.connect(alice).transfer(
-  bob.address,
-  encrypted.handles[0],
-  encrypted.inputProof
-);
+await token.connect(alice).transfer(bob.address, encrypted.handles[0], encrypted.inputProof);
 ```
 
 ### Approving Spender
 
 ```typescript
 // Alice approves Bob to spend 50 tokens
-const input = await fhevm.createEncryptedInput(
-  await token.getAddress(),
-  alice.address
-);
+const input = await fhevm.createEncryptedInput(await token.getAddress(), alice.address);
 input.add32(50);
 const encrypted = await input.encrypt();
 
-await token.connect(alice).approve(
-  bob.address,
-  encrypted.handles[0],
-  encrypted.inputProof
-);
+await token.connect(alice).approve(bob.address, encrypted.handles[0], encrypted.inputProof);
 ```
 
 ### TransferFrom
 
 ```typescript
 // Bob transfers 30 tokens from Alice to Charlie
-const input = await fhevm.createEncryptedInput(
-  await token.getAddress(),
-  bob.address
-);
+const input = await fhevm.createEncryptedInput(await token.getAddress(), bob.address);
 input.add32(30);
 const encrypted = await input.encrypt();
 
-await token.connect(bob).transferFrom(
-  alice.address,
-  charlie.address,
-  encrypted.handles[0],
-  encrypted.inputProof
-);
+await token
+  .connect(bob)
+  .transferFrom(alice.address, charlie.address, encrypted.handles[0], encrypted.inputProof);
 ```
 
 ### Checking Balance
@@ -202,10 +182,7 @@ await token.connect(bob).transferFrom(
 const encryptedBalance = await token.balanceOf(alice.address);
 
 // Decrypt (requires permission)
-const balance = await fhevm.decrypt(
-  await token.getAddress(),
-  encryptedBalance
-);
+const balance = await fhevm.decrypt(await token.getAddress(), encryptedBalance);
 console.log('Alice balance:', balance);
 ```
 
@@ -255,6 +232,7 @@ balances[msg.sender] = FHE.sub(balances[msg.sender], amount);
 ### Gas Costs
 
 FHE operations are expensive:
+
 - Transfer: ~200,000 gas
 - Approve: ~100,000 gas
 - TransferFrom: ~300,000 gas
@@ -318,18 +296,11 @@ describe('ConfidentialERC20', function () {
     await token.mint(alice.address, 1000);
 
     // Alice transfers to Bob
-    const input = await fhevm.createEncryptedInput(
-      await token.getAddress(),
-      alice.address
-    );
+    const input = await fhevm.createEncryptedInput(await token.getAddress(), alice.address);
     input.add32(100);
     const encrypted = await input.encrypt();
 
-    await token.connect(alice).transfer(
-      bob.address,
-      encrypted.handles[0],
-      encrypted.inputProof
-    );
+    await token.connect(alice).transfer(bob.address, encrypted.handles[0], encrypted.inputProof);
 
     // Verify balances (requires decryption)
     const aliceBalance = await fhevm.decrypt(

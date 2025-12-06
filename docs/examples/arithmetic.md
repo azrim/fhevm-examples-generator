@@ -113,11 +113,11 @@ console.log(result); // 30
 
 ## Gas Costs
 
-| Operation | Approximate Gas |
-|-----------|----------------|
-| `FHE.add()` | ~50,000 |
-| `FHE.sub()` | ~50,000 |
-| `FHE.mul()` | ~150,000 |
+| Operation   | Approximate Gas |
+| ----------- | --------------- |
+| `FHE.add()` | ~50,000         |
+| `FHE.sub()` | ~50,000         |
+| `FHE.mul()` | ~150,000        |
 
 Multiplication is 3x more expensive than addition!
 

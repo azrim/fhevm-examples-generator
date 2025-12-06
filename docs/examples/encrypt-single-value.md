@@ -5,7 +5,7 @@ Learn how to properly encrypt and validate single values with input proofs.
 ## Overview
 
 **Difficulty:** Intermediate
-Concepts:** Input proofs, encryption binding, validation
+Concepts:\*\* Input proofs, encryption binding, validation
 
 ## What You'll Learn
 
@@ -57,6 +57,7 @@ contract EncryptSingleValue is ZamaEthereumConfig {
 ### What is an Input Proof?
 
 An input proof is a zero-knowledge proof that validates:
+
 1. The encrypted value is correctly formed
 2. The value is bound to the specific contract address
 3. The value is bound to the specific user address
@@ -64,6 +65,7 @@ An input proof is a zero-knowledge proof that validates:
 ### Why Are They Needed?
 
 Without input proofs, attackers could:
+
 - Replay encrypted values from other contracts
 - Use encrypted values from other users
 - Submit malformed encrypted data
@@ -74,8 +76,8 @@ Without input proofs, attackers could:
 // Create encrypted input with proof
 const fhevm = await getFHEVM();
 const input = await fhevm.createEncryptedInput(
-  contractAddress,  // Binds to this contract
-  userAddress       // Binds to this user
+  contractAddress, // Binds to this contract
+  userAddress // Binds to this user
 );
 
 // Add the value to encrypt
@@ -86,8 +88,8 @@ const encrypted = await input.encrypt();
 
 // Use in contract call
 await contract.storeEncryptedValue(
-  encrypted.handles[0],    // The encrypted value
-  encrypted.inputProof     // The proof
+  encrypted.handles[0], // The encrypted value
+  encrypted.inputProof // The proof
 );
 ```
 
@@ -142,7 +144,7 @@ function store(externalEuint32 input, bytes calldata inputProof) external {
 ```typescript
 // Wrong - using wrong contract address
 const input = await fhevm.createEncryptedInput(
-  wrongAddress,  // ❌ Wrong contract
+  wrongAddress, // ❌ Wrong contract
   user.address
 );
 ```
@@ -153,7 +155,7 @@ const input = await fhevm.createEncryptedInput(
 // Correct - using actual contract address
 const contractAddr = await contract.getAddress();
 const input = await fhevm.createEncryptedInput(
-  contractAddr,  // ✅ Correct contract
+  contractAddr, // ✅ Correct contract
   user.address
 );
 ```
@@ -168,6 +170,7 @@ euint32 value = FHE.fromExternal(input, inputProof);
 ```
 
 This ensures:
+
 - Value is correctly encrypted
 - Value is bound to this contract
 - Value is bound to msg.sender
@@ -190,18 +193,12 @@ describe('EncryptSingleValue', function () {
 
     // Create encrypted input with proof
     const fhevm = await getFHEVM();
-    const input = await fhevm.createEncryptedInput(
-      await contract.getAddress(),
-      signer.address
-    );
+    const input = await fhevm.createEncryptedInput(await contract.getAddress(), signer.address);
     input.add32(42);
     const encrypted = await input.encrypt();
 
     // Store with proof
-    await contract.storeEncryptedValue(
-      encrypted.handles[0],
-      encrypted.inputProof
-    );
+    await contract.storeEncryptedValue(encrypted.handles[0], encrypted.inputProof);
 
     // Verify stored
     const stored = await contract.getEncryptedValue(signer.address);

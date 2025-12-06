@@ -6,18 +6,18 @@ FHEVM provides encrypted versions of common Solidity types.
 
 ### Unsigned Integers
 
-| Type | Bits | Range | Gas Cost |
-|------|------|-------|----------|
-| `euint8` | 8 | 0 to 255 | Low |
-| `euint16` | 16 | 0 to 65,535 | Medium |
-| `euint32` | 32 | 0 to 4,294,967,295 | High |
-| `euint64` | 64 | 0 to 2^64-1 | Very High |
+| Type      | Bits | Range              | Gas Cost  |
+| --------- | ---- | ------------------ | --------- |
+| `euint8`  | 8    | 0 to 255           | Low       |
+| `euint16` | 16   | 0 to 65,535        | Medium    |
+| `euint32` | 32   | 0 to 4,294,967,295 | High      |
+| `euint64` | 64   | 0 to 2^64-1        | Very High |
 
 ### Boolean
 
-| Type | Values | Gas Cost |
-|------|--------|----------|
-| `ebool` | true/false | Low |
+| Type    | Values     | Gas Cost |
+| ------- | ---------- | -------- |
+| `ebool` | true/false | Low      |
 
 ## Creating Encrypted Values
 
