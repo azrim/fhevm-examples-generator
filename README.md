@@ -2,6 +2,7 @@
 
 Production-ready tooling to scaffold standalone Hardhat FHEVM example repositories from the official [Zama Hardhat template](https://github.com/zama-ai/fhevm-hardhat-template).
 
+**Repository:** https://github.com/azrim/fhevm-examples-generator
 **Bounty Reference:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
 
 ## Features
@@ -25,13 +26,14 @@ Production-ready tooling to scaffold standalone Hardhat FHEVM example repositori
 
 ```bash
 # Clone this repository
-git clone <your-repo-url> fhevm-examples-generator
+git clone https://github.com/azrim/fhevm-examples-generator.git
 cd fhevm-examples-generator
+
+# Clone the base template (if not present)
+git clone https://github.com/zama-ai/fhevm-hardhat-template.git base-template
 
 # Install dependencies
 npm ci
-
-# The base template is already cloned in base-template/
 ```
 
 ### Scaffold a Single Example
