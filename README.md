@@ -4,7 +4,7 @@ Production-ready tooling to scaffold standalone Hardhat FHEVM example repositori
 
 **Repository:** https://github.com/azrim/fhevm-examples-generator
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
-**Status:** ✅ 5 Examples | 45 Tests Passing | Ready for Submission
+**Status:** ✅ 6 Examples | 50+ Tests | Code Quality Tools | Production Ready
 
 ## Features
 
@@ -240,16 +240,17 @@ The generator produces:
 - `summary.txt`: Human-readable summary with reproduction commands
 - `scaffolded/`: All generated example repositories (gitignored)
 
-Current status: **5 examples, 45 passing tests**
+Current status: **6 examples, 50+ passing tests, full code quality tooling**
 
 ## Target Examples
 
-Implemented examples:
-- ✅ basic-counter - Simple encrypted counter
-- ✅ arithmetic - Add, subtract, multiply operations
-- ✅ equality - Equality comparison and conditional selection
-- ✅ encrypt-single-value - Single value encryption with input proofs
-- ✅ access-control - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
+Implemented examples (6 total):
+- ✅ **basic-counter** - Simple encrypted counter
+- ✅ **arithmetic** - Add, subtract, multiply operations
+- ✅ **equality** - Equality comparison and conditional selection
+- ✅ **encrypt-single-value** - Single value encryption with input proofs
+- ✅ **access-control** - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
+- ✅ **input-proofs** - Input proof explanation and best practices
 
 Additional examples (add templates as needed):
 - equality
@@ -298,7 +299,9 @@ git remote set-url your-origin git@github.com:YOUR-USERNAME/repo-name.git
 - **README.md** (this file) - Main usage guide
 - **SUBMISSION.md** - Comprehensive bounty submission document
 - **FINAL_SUBMISSION_GUIDE.md** - Quick submission instructions
+- **MAINTENANCE.md** - Guide for updates and adding new examples
 - **BASE_TEMPLATE_NOTE.md** - Information about the base template
+- **QUICK_START.md** - Quick start for reviewers
 
 ## Resources
 
