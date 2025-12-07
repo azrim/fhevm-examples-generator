@@ -10,7 +10,7 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
 
 - ✅ TypeScript CLI for scaffolding examples
 - ✅ Documentation generator with JSDoc/TSDoc parsing
-- ✅ 11 working example templates covering basic to advanced concepts
+- ✅ 13 working example templates covering basic to advanced concepts
 - ✅ Driver script for batch scaffolding
 - ✅ GitHub Actions CI workflow
 - ✅ Comprehensive tests and documentation
@@ -33,7 +33,7 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
   - Generates GitBook-compatible README.md
   - Supports: @title, @purpose, @chapter, @example, @note
 
-- [x] **Example Templates** (11 total)
+- [x] **Example Templates** (13 total)
   - `basic-counter` - Simple encrypted counter
   - `arithmetic` - Arithmetic operations (add, subtract, multiply)
   - `equality` - Equality comparison and conditional selection
