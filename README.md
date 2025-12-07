@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/6f3389b8-e7be-4cb2-ab7a-89df8d7ff2ed
 
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
 
-**Status:** ✅ 8 Examples | 60+ Tests | Code Quality Tools | Production Ready
+**Status:** ✅ 13 Examples | 90+ Tests | Code Quality Tools | Production Ready
 
 ## Features
 
