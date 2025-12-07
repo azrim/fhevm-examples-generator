@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
-import {ZamaEthereumConfig} from '@fhevm/solidity/lib/ZamaEthereumConfig.sol';
+import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
  * @title Public Decrypt Single Value

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint8, euint16, euint32, inEuint8, inEuint16, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
-import {ZamaEthereumConfig} from '@fhevm/solidity/lib/ZamaEthereumConfig.sol';
+import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
  * @title Encrypt Multiple Values
