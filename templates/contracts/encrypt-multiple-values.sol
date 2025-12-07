@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity ^0.8.24;
 
-import {FHE, euint8, euint16, euint32, inEuint8, inEuint16, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
+import {FHE, euint8, euint16, euint32, externalEuint8, externalEuint16, externalEuint32} from '@fhevm/solidity/lib/FHE.sol';
 import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
@@ -30,16 +30,14 @@ contract EncryptMultipleValues is ZamaEthereumConfig {
    * @param proofBalance Proof for balance
    */
   function storeData(
-    inEuint8 calldata age,
-    inEuint16 calldata score,
-    inEuint32 calldata balance,
-    bytes calldata proofAge,
-    bytes calldata proofScore,
-    bytes calldata proofBalance
+    externalEuint8 age,
+    externalEuint16 score,
+    externalEuint32 balance,
+    bytes calldata inputProof
   ) public {
-    euint8 encAge = FHE.asEuint8(age, proofAge);
-    euint16 encScore = FHE.asEuint16(score, proofScore);
-    euint32 encBalance = FHE.asEuint32(balance, proofBalance);
+    euint8 encAge = FHE.fromExternal(age, inputProof);
+    euint16 encScore = FHE.fromExternal(score, inputProof);
+    euint32 encBalance = FHE.fromExternal(balance, inputProof);
 
     FHE.allowThis(encAge);
     FHE.allowThis(encScore);
@@ -71,10 +69,10 @@ contract EncryptMultipleValues is ZamaEthereumConfig {
   /**
    * @notice Update specific field
    */
-  function updateBalance(inEuint32 calldata newBalance, bytes calldata inputProof) public {
+  function updateBalance(externalEuint32 newBalance, bytes calldata inputProof) public {
     require(userData[msg.sender].initialized, 'No data stored');
 
-    euint32 encBalance = FHE.asEuint32(newBalance, inputProof);
+    euint32 encBalance = FHE.fromExternal(newBalance, inputProof);
     FHE.allowThis(encBalance);
     FHE.allow(encBalance, msg.sender);
 

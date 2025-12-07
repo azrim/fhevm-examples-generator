@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity ^0.8.24;
 
-import {FHE, euint8, euint16, euint32, inEuint8, inEuint16, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
+import {FHE, euint8, euint16, euint32, externalEuint8, externalEuint16, externalEuint32} from '@fhevm/solidity/lib/FHE.sol';
 import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
@@ -33,16 +33,14 @@ contract PublicDecryptMultiple is ZamaEthereumConfig {
    * @notice Set encrypted stats
    */
   function setStats(
-    inEuint8 calldata strength,
-    inEuint16 calldata health,
-    inEuint32 calldata experience,
-    bytes calldata proofStr,
-    bytes calldata proofHp,
-    bytes calldata proofExp
+    externalEuint8 strength,
+    externalEuint16 health,
+    externalEuint32 experience,
+    bytes calldata inputProof
   ) public {
-    euint8 encStr = FHE.asEuint8(strength, proofStr);
-    euint16 encHp = FHE.asEuint16(health, proofHp);
-    euint32 encExp = FHE.asEuint32(experience, proofExp);
+    euint8 encStr = FHE.fromExternal(strength, inputProof);
+    euint16 encHp = FHE.fromExternal(health, inputProof);
+    euint32 encExp = FHE.fromExternal(experience, inputProof);
 
     FHE.allowThis(encStr);
     FHE.allowThis(encHp);

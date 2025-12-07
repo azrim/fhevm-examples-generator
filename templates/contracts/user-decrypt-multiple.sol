@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity ^0.8.24;
 
-import {FHE, euint8, euint16, euint32, inEuint8, inEuint16, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
+import {FHE, euint8, euint16, euint32, externalEuint8, externalEuint16, externalEuint32} from '@fhevm/solidity/lib/FHE.sol';
 import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
@@ -25,16 +25,14 @@ contract UserDecryptMultiple is ZamaEthereumConfig {
    * @notice Create user profile with multiple encrypted values
    */
   function createProfile(
-    inEuint8 calldata level,
-    inEuint16 calldata points,
-    inEuint32 calldata coins,
-    bytes calldata proofLevel,
-    bytes calldata proofPoints,
-    bytes calldata proofCoins
+    externalEuint8 level,
+    externalEuint16 points,
+    externalEuint32 coins,
+    bytes calldata inputProof
   ) public {
-    euint8 encLevel = FHE.asEuint8(level, proofLevel);
-    euint16 encPoints = FHE.asEuint16(points, proofPoints);
-    euint32 encCoins = FHE.asEuint32(coins, proofCoins);
+    euint8 encLevel = FHE.fromExternal(level, inputProof);
+    euint16 encPoints = FHE.fromExternal(points, inputProof);
+    euint32 encCoins = FHE.fromExternal(coins, inputProof);
 
     FHE.allowThis(encLevel);
     FHE.allowThis(encPoints);
@@ -80,10 +78,10 @@ contract UserDecryptMultiple is ZamaEthereumConfig {
   /**
    * @notice Add points
    */
-  function addPoints(inEuint16 calldata amount, bytes calldata inputProof) public {
+  function addPoints(externalEuint16 amount, bytes calldata inputProof) public {
     require(profiles[msg.sender].initialized, 'Profile not found');
 
-    euint16 encAmount = FHE.asEuint16(amount, inputProof);
+    euint16 encAmount = FHE.fromExternal(amount, inputProof);
     FHE.allowThis(encAmount);
 
     euint16 newPoints = FHE.add(profiles[msg.sender].points, encAmount);

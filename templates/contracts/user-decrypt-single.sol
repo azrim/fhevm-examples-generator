@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity ^0.8.24;
 
-import {FHE, euint32, inEuint32} from '@fhevm/solidity/lib/FHE.sol';
+import {FHE, euint32, externalEuint32} from '@fhevm/solidity/lib/FHE.sol';
 import {ZamaEthereumConfig} from '@fhevm/solidity/config/ZamaConfig.sol';
 
 /**
@@ -20,8 +20,8 @@ contract UserDecryptSingle is ZamaEthereumConfig {
    * @param amount Encrypted amount
    * @param inputProof Proof for the encrypted input
    */
-  function setBalance(inEuint32 calldata amount, bytes calldata inputProof) public {
-    euint32 encAmount = FHE.asEuint32(amount, inputProof);
+  function setBalance(externalEuint32 amount, bytes calldata inputProof) public {
+    euint32 encAmount = FHE.fromExternal(amount, inputProof);
     FHE.allowThis(encAmount);
     FHE.allow(encAmount, msg.sender);
 
@@ -43,8 +43,8 @@ contract UserDecryptSingle is ZamaEthereumConfig {
    * @param amount Amount to add
    * @param inputProof Proof for amount
    */
-  function addToBalance(inEuint32 calldata amount, bytes calldata inputProof) public {
-    euint32 encAmount = FHE.asEuint32(amount, inputProof);
+  function addToBalance(externalEuint32 amount, bytes calldata inputProof) public {
+    euint32 encAmount = FHE.fromExternal(amount, inputProof);
     FHE.allowThis(encAmount);
 
     euint32 newBalance = FHE.add(balances[msg.sender], encAmount);
