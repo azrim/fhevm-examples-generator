@@ -93,5 +93,20 @@
     "success": true,
     "testsPassed": true,
     "timestamp": "2025-12-06T15:26:10.801Z"
+  },
+  {
+    "name": "public-decrypt-single",
+    "path": "D:\\Project\\zama\\scaffolded\\public-decrypt-single",
+    "success": true,
+    "testsPassed": true,
+    "timestamp": "2025-12-07T08:46:17.275Z"
+  },
+  {
+    "name": "public-decrypt-multiple",
+    "path": "D:\\Project\\zama\\scaffolded\\public-decrypt-multiple",
+    "success": true,
+    "testsPassed": false,
+    "timestamp": "2025-12-07T08:47:15.105Z",
+    "error": "Tests and compilation failed: Command failed with exit code 3221226505: npm test"
   }
 ]
