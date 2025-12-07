@@ -152,6 +152,25 @@ fhevm-examples-generator/
 └── README.md                   # This file
 ```
 
+## Category Organization
+
+Examples are organized into logical categories for better discoverability:
+
+| Category            | Purpose                                      | Examples |
+| ------------------- | -------------------------------------------- | -------- |
+| `getting-started`   | First steps with FHEVM                       | 1        |
+| `operations`        | Basic FHE operations                         | 1        |
+| `comparisons`       | Comparison and conditional logic             | 1        |
+| `encryption`        | Encrypting values with input proofs          | 2        |
+| `user-decryption`   | User-side decryption patterns                | 2        |
+| `public-decryption` | KMS-based public decryption                  | 2        |
+| `permissions`       | Access control and permission management     | 1        |
+| `security`          | Security best practices and input validation | 1        |
+| `advanced`          | Complex patterns and use cases               | 1        |
+| `tokens`            | Token standards (ERC-7984)                   | 1        |
+
+Categories are specified when scaffolding and used for documentation organization.
+
 ## Adding New Templates
 
 1. Create contract template in `templates/contracts/<name>.sol`
@@ -162,7 +181,7 @@ fhevm-examples-generator/
 ```typescript
 {
   name: 'my-example',
-  category: 'my-category',
+  category: 'my-category',  // Choose appropriate category
   contractTemplate: 'templates/contracts/my-example.sol',
   testTemplate: 'templates/tests/my-example.test.ts',
 }
@@ -256,12 +275,18 @@ Current status: **13 Examples, 80+ passing tests, full code quality tooling**
 
 ## Available Examples
 
-All 13 Examples are ready to scaffold:
+All 13 examples are ready to scaffold, organized by category:
 
-### Basic Operations (3)
+### Getting Started (1)
 
 - ✅ **basic-counter** - Simple encrypted counter with increment/decrement
+
+### Operations (1)
+
 - ✅ **arithmetic** - FHE arithmetic operations (add, subtract, multiply)
+
+### Comparisons (1)
+
 - ✅ **equality** - Equality comparison and conditional selection (FHE.eq, FHE.select)
 
 ### Encryption (2)
@@ -274,18 +299,26 @@ All 13 Examples are ready to scaffold:
 - ✅ **user-decrypt-single** - User-side decryption of single encrypted value
 - ✅ **user-decrypt-multiple** - User-side decryption of multiple encrypted values
 
-### Advanced (4)
+### Public Decryption (2)
+
+- ✅ **public-decrypt-single** - KMS-based public decryption of single value
+- ✅ **public-decrypt-multiple** - KMS-based public decryption of multiple values
+
+### Permissions (1)
 
 - ✅ **access-control** - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
+
+### Security (1)
+
 - ✅ **input-proofs** - Input proof validation and best practices
+
+### Advanced (1)
+
 - ✅ **blind-auction** - Sealed-bid auction with encrypted bids
+
+### Tokens (1)
+
 - ✅ **openzeppelin-erc7984** - Confidential ERC20 token (ERC-7984 standard)
-- handles-lifecycle
-
-Bonus:
-
-- openzeppelin-erc7984
-- blind-auction
 
 ## Submission
 

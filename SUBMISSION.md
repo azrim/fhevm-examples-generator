@@ -358,30 +358,46 @@ fhevm-examples-generator/
    - Additional resources
 5. Write README.md
 
-## Target Examples
+## Target Examples (13 Total)
 
-### Basic Operations (3)
+All examples are organized by category for easy navigation:
 
-- ✅ basic-counter - Simple encrypted counter
-- ✅ arithmetic - Add, subtract, multiply operations
-- ✅ equality - Comparison operations (FHE.eq, FHE.select)
+### Getting Started (1)
+
+- ✅ **basic-counter** (category: `getting-started`) - Simple encrypted counter
+
+### Operations & Comparisons (2)
+
+- ✅ **arithmetic** (category: `operations`) - Add, subtract, multiply operations
+- ✅ **equality** (category: `comparisons`) - Comparison operations (FHE.eq, FHE.select)
 
 ### Encryption (2)
 
-- ✅ encrypt-single-value - Single value encryption with input proofs
-- ✅ encrypt-multiple-values - Batch encryption of multiple values
+- ✅ **encrypt-single-value** (category: `encryption`) - Single value encryption with input proofs
+- ✅ **encrypt-multiple-values** (category: `encryption`) - Batch encryption of multiple values
 
 ### User Decryption (2)
 
-- ✅ user-decrypt-single - User-side decryption of single value
-- ✅ user-decrypt-multiple - User-side decryption of multiple values
+- ✅ **user-decrypt-single** (category: `user-decryption`) - User-side decryption of single value
+- ✅ **user-decrypt-multiple** (category: `user-decryption`) - User-side decryption of multiple values
 
-### Advanced (4)
+### Public Decryption (2)
 
-- ✅ access-control - Access control patterns
-- ✅ input-proofs - Input proof handling
-- ✅ blind-auction - Blind auction example
-- ✅ openzeppelin-erc7984 - OpenZeppelin ERC-7984 integration
+- ✅ **public-decrypt-single** (category: `public-decryption`) - KMS-based public decryption (single)
+- ✅ **public-decrypt-multiple** (category: `public-decryption`) - KMS-based public decryption (multiple)
+
+### Permissions & Security (2)
+
+- ✅ **access-control** (category: `permissions`) - Access control patterns
+- ✅ **input-proofs** (category: `security`) - Input proof handling
+
+### Advanced (1)
+
+- ✅ **blind-auction** (category: `advanced`) - Blind auction example
+
+### Tokens (1)
+
+- ✅ **openzeppelin-erc7984** (category: `tokens`) - OpenZeppelin ERC-7984 integration
 
 ## Adding New Examples
 

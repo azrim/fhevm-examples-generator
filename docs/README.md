@@ -27,38 +27,50 @@ npm test
 
 ## Examples Overview
 
-This hub contains 13 production-ready examples covering fundamental to advanced FHEVM concepts:
+This hub contains 13 production-ready examples organized by category:
 
-### Basic Operations (3)
+### Getting Started
 
-| Example       | Concepts                                    |
-| ------------- | ------------------------------------------- |
-| Basic Counter | Encrypted state, increment/decrement        |
-| Arithmetic    | Add, subtract, multiply on encrypted values |
-| Equality      | Comparisons and conditional selection       |
+| Example       | Category        | Concepts                             |
+| ------------- | --------------- | ------------------------------------ |
+| Basic Counter | getting-started | Encrypted state, increment/decrement |
 
-### Encryption (2)
+### Operations & Comparisons
 
-| Example                 | Concepts                              |
-| ----------------------- | ------------------------------------- |
-| Encrypt Single Value    | Input proofs, single value encryption |
-| Encrypt Multiple Values | Batch encryption of multiple types    |
+| Example    | Category    | Concepts                                    |
+| ---------- | ----------- | ------------------------------------------- |
+| Arithmetic | operations  | Add, subtract, multiply on encrypted values |
+| Equality   | comparisons | Comparisons and conditional selection       |
 
-### User Decryption (2)
+### Encryption
 
-| Example               | Concepts                                |
-| --------------------- | --------------------------------------- |
-| User Decrypt Single   | User-side decryption of single value    |
-| User Decrypt Multiple | User-side decryption of multiple values |
+| Example                 | Category   | Concepts                              |
+| ----------------------- | ---------- | ------------------------------------- |
+| Encrypt Single Value    | encryption | Input proofs, single value encryption |
+| Encrypt Multiple Values | encryption | Batch encryption of multiple types    |
 
-### Advanced (4)
+### Decryption
 
-| Example            | Concepts                                 |
-| ------------------ | ---------------------------------------- |
-| Access Control     | Permission management (allow, allowThis) |
-| Input Proofs       | Zero-knowledge proofs, validation        |
-| Blind Auction      | Sealed-bid auction, encrypted bids       |
-| Confidential ERC20 | ERC-7984 token standard                  |
+| Example                 | Category          | Concepts                                |
+| ----------------------- | ----------------- | --------------------------------------- |
+| User Decrypt Single     | user-decryption   | User-side decryption of single value    |
+| User Decrypt Multiple   | user-decryption   | User-side decryption of multiple values |
+| Public Decrypt Single   | public-decryption | KMS-based public decryption (single)    |
+| Public Decrypt Multiple | public-decryption | KMS-based public decryption (multiple)  |
+
+### Permissions & Security
+
+| Example        | Category    | Concepts                                 |
+| -------------- | ----------- | ---------------------------------------- |
+| Access Control | permissions | Permission management (allow, allowThis) |
+| Input Proofs   | security    | Zero-knowledge proofs, validation        |
+
+### Advanced & Tokens
+
+| Example            | Category | Concepts                           |
+| ------------------ | -------- | ---------------------------------- |
+| Blind Auction      | advanced | Sealed-bid auction, encrypted bids |
+| Confidential ERC20 | tokens   | ERC-7984 token standard            |
 
 ## Key Concepts
 
