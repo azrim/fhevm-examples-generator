@@ -37,6 +37,36 @@ const examples: ExampleConfig[] = [
     testTemplate: 'templates/tests/encrypt-single-value.test.ts',
   },
   {
+    name: 'encrypt-multiple-values',
+    category: 'encryption',
+    contractTemplate: 'templates/contracts/encrypt-multiple-values.sol',
+    testTemplate: 'templates/tests/encrypt-multiple-values.test.ts',
+  },
+  {
+    name: 'user-decrypt-single',
+    category: 'user-decryption',
+    contractTemplate: 'templates/contracts/user-decrypt-single.sol',
+    testTemplate: 'templates/tests/user-decrypt-single.test.ts',
+  },
+  {
+    name: 'user-decrypt-multiple',
+    category: 'user-decryption',
+    contractTemplate: 'templates/contracts/user-decrypt-multiple.sol',
+    testTemplate: 'templates/tests/user-decrypt-multiple.test.ts',
+  },
+  {
+    name: 'public-decrypt-single',
+    category: 'public-decryption',
+    contractTemplate: 'templates/contracts/public-decrypt-single.sol',
+    testTemplate: 'templates/tests/public-decrypt-single.test.ts',
+  },
+  {
+    name: 'public-decrypt-multiple',
+    category: 'public-decryption',
+    contractTemplate: 'templates/contracts/public-decrypt-multiple.sol',
+    testTemplate: 'templates/tests/public-decrypt-multiple.test.ts',
+  },
+  {
     name: 'access-control',
     category: 'permissions',
     contractTemplate: 'templates/contracts/access-control.sol',
