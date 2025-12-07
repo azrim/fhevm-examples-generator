@@ -86,11 +86,13 @@ expect(decrypted).to.equal(42);
 ## When to Use
 
 Use public decryption when:
+
 - The value needs to be publicly known eventually
 - You need to use the value in non-FHE operations
 - You're implementing a reveal mechanism
 
 Avoid public decryption when:
+
 - The value should remain private
 - User-side decryption is sufficient
 - Gas costs are a concern

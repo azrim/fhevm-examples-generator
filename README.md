@@ -259,23 +259,28 @@ Current status: **13 examples, 90+ passing tests, full code quality tooling**
 All 13 examples are ready to scaffold:
 
 ### Basic Operations (3)
+
 - ✅ **basic-counter** - Simple encrypted counter with increment/decrement
 - ✅ **arithmetic** - FHE arithmetic operations (add, subtract, multiply)
 - ✅ **equality** - Equality comparison and conditional selection (FHE.eq, FHE.select)
 
 ### Encryption (2)
+
 - ✅ **encrypt-single-value** - Single value encryption with input proofs
 - ✅ **encrypt-multiple-values** - Batch encryption of multiple values (euint8, euint16, euint32)
 
 ### User Decryption (2)
+
 - ✅ **user-decrypt-single** - User-side decryption of single encrypted value
 - ✅ **user-decrypt-multiple** - User-side decryption of multiple encrypted values
 
 ### Public Decryption (2)
+
 - ✅ **public-decrypt-single** - On-chain public decryption (FHE.decrypt)
 - ✅ **public-decrypt-multiple** - Public decryption of multiple values
 
 ### Advanced (4)
+
 - ✅ **access-control** - Permission management (FHE.allow, FHE.allowThis, FHE.allowTransient)
 - ✅ **input-proofs** - Input proof validation and best practices
 - ✅ **blind-auction** - Sealed-bid auction with encrypted bids

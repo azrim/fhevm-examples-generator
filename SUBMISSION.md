@@ -364,23 +364,28 @@ fhevm-examples-generator/
 ## Target Examples
 
 ### Basic Operations (3)
+
 - ✅ basic-counter - Simple encrypted counter
 - ✅ arithmetic - Add, subtract, multiply operations
 - ✅ equality - Comparison operations (FHE.eq, FHE.select)
 
 ### Encryption (2)
+
 - ✅ encrypt-single-value - Single value encryption with input proofs
 - ✅ encrypt-multiple-values - Batch encryption of multiple values
 
 ### User Decryption (2)
+
 - ✅ user-decrypt-single - User-side decryption of single value
 - ✅ user-decrypt-multiple - User-side decryption of multiple values
 
 ### Public Decryption (2)
+
 - ✅ public-decrypt-single - On-chain public decryption
 - ✅ public-decrypt-multiple - Public decryption of multiple values
 
 ### Advanced (4)
+
 - ✅ access-control - Access control patterns
 - ✅ input-proofs - Input proof handling
 - ✅ blind-auction - Blind auction example
