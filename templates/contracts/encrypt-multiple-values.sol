@@ -25,9 +25,7 @@ contract EncryptMultipleValues is ZamaEthereumConfig {
    * @param age Encrypted age (0-255)
    * @param score Encrypted score (0-65535)
    * @param balance Encrypted balance
-   * @param proofAge Proof for age
-   * @param proofScore Proof for score
-   * @param proofBalance Proof for balance
+   * @param inputProof Proof for all encrypted inputs
    */
   function storeData(
     externalEuint8 age,

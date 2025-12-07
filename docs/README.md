@@ -51,13 +51,6 @@ This hub contains 13 production-ready examples covering fundamental to advanced 
 | User Decrypt Single   | User-side decryption of single value    |
 | User Decrypt Multiple | User-side decryption of multiple values |
 
-### Public Decryption (2)
-
-| Example                 | Concepts                             |
-| ----------------------- | ------------------------------------ |
-| Public Decrypt Single   | On-chain public decryption           |
-| Public Decrypt Multiple | Public decryption of multiple values |
-
 ### Advanced (4)
 
 | Example            | Concepts                                 |

@@ -23,8 +23,6 @@
 
 - [User Decrypt Single](examples/user-decrypt-single.md)
 - [User Decrypt Multiple](examples/user-decrypt-multiple.md)
-- [Public Decrypt Single](examples/public-decrypt-single.md)
-- [Public Decrypt Multiple](examples/public-decrypt-multiple.md)
 
 ## Intermediate Examples
 

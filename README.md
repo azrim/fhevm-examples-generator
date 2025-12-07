@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/6f3389b8-e7be-4cb2-ab7a-89df8d7ff2ed
 
 **Bounty:** [Build the FHEVM Example Hub - December 2025](https://www.zama.org/post/bounty-track-december-2025-build-the-fhevm-example-hub)
 
-**Status:** ✅ 13 Examples | 90+ Tests | Code Quality Tools | Production Ready
+**Status:** ✅ 11 Examples | 80+ Tests | Code Quality Tools | Production Ready
 
 ## Features
 
@@ -252,11 +252,11 @@ The generator produces:
 - `summary.txt`: Human-readable summary with reproduction commands
 - `scaffolded/`: All generated example repositories (gitignored)
 
-Current status: **13 examples, 90+ passing tests, full code quality tooling**
+Current status: **11 examples, 80+ passing tests, full code quality tooling**
 
 ## Available Examples
 
-All 13 examples are ready to scaffold:
+All 11 examples are ready to scaffold:
 
 ### Basic Operations (3)
 
@@ -273,11 +273,6 @@ All 13 examples are ready to scaffold:
 
 - ✅ **user-decrypt-single** - User-side decryption of single encrypted value
 - ✅ **user-decrypt-multiple** - User-side decryption of multiple encrypted values
-
-### Public Decryption (2)
-
-- ✅ **public-decrypt-single** - On-chain public decryption (FHE.decrypt)
-- ✅ **public-decrypt-multiple** - Public decryption of multiple values
 
 ### Advanced (4)
 
