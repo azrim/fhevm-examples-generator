@@ -27,18 +27,40 @@ npm test
 
 ## Examples Overview
 
-This hub contains 8 production-ready examples covering fundamental to advanced FHEVM concepts:
+This hub contains 13 production-ready examples covering fundamental to advanced FHEVM concepts:
 
-| Example              | Difficulty   | Concepts                                    |
-| -------------------- | ------------ | ------------------------------------------- |
-| Basic Counter        | Beginner     | Encrypted state, basic operations           |
-| Arithmetic           | Beginner     | Add, subtract, multiply on encrypted values |
-| Equality             | Beginner     | Comparisons and conditional selection       |
-| Encrypt Single Value | Intermediate | Input proofs, encryption binding            |
-| Access Control       | Intermediate | Permission management (allow, allowThis)    |
-| Input Proofs         | Intermediate | Zero-knowledge proofs, validation           |
-| Blind Auction        | Advanced     | Sealed-bid auction, encrypted bids          |
-| Confidential ERC20   | Advanced     | ERC-7984 token standard                     |
+### Basic Operations (3)
+| Example       | Concepts                                    |
+| ------------- | ------------------------------------------- |
+| Basic Counter | Encrypted state, increment/decrement        |
+| Arithmetic    | Add, subtract, multiply on encrypted values |
+| Equality      | Comparisons and conditional selection       |
+
+### Encryption (2)
+| Example                  | Concepts                              |
+| ------------------------ | ------------------------------------- |
+| Encrypt Single Value     | Input proofs, single value encryption |
+| Encrypt Multiple Values  | Batch encryption of multiple types    |
+
+### User Decryption (2)
+| Example                   | Concepts                                |
+| ------------------------- | --------------------------------------- |
+| User Decrypt Single       | User-side decryption of single value    |
+| User Decrypt Multiple     | User-side decryption of multiple values |
+
+### Public Decryption (2)
+| Example                   | Concepts                          |
+| ------------------------- | --------------------------------- |
+| Public Decrypt Single     | On-chain public decryption        |
+| Public Decrypt Multiple   | Public decryption of multiple values |
+
+### Advanced (4)
+| Example              | Concepts                                 |
+| -------------------- | ---------------------------------------- |
+| Access Control       | Permission management (allow, allowThis) |
+| Input Proofs         | Zero-knowledge proofs, validation        |
+| Blind Auction        | Sealed-bid auction, encrypted bids       |
+| Confidential ERC20   | ERC-7984 token standard                  |
 
 ## Key Concepts
 

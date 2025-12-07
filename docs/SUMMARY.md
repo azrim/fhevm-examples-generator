@@ -14,9 +14,20 @@
 - [Arithmetic Operations](examples/arithmetic.md)
 - [Equality & Comparisons](examples/equality.md)
 
-## Intermediate Examples
+## Encryption Examples
 
 - [Encrypt Single Value](examples/encrypt-single-value.md)
+- [Encrypt Multiple Values](examples/encrypt-multiple-values.md)
+
+## Decryption Examples
+
+- [User Decrypt Single](examples/user-decrypt-single.md)
+- [User Decrypt Multiple](examples/user-decrypt-multiple.md)
+- [Public Decrypt Single](examples/public-decrypt-single.md)
+- [Public Decrypt Multiple](examples/public-decrypt-multiple.md)
+
+## Intermediate Examples
+
 - [Access Control](examples/access-control.md)
 - [Input Proofs](examples/input-proofs.md)
 

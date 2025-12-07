@@ -10,7 +10,7 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
 
 - ✅ TypeScript CLI for scaffolding examples
 - ✅ Documentation generator with JSDoc/TSDoc parsing
-- ✅ 8 working example templates covering basic to advanced concepts
+- ✅ 13 working example templates covering basic to advanced concepts
 - ✅ Driver script for batch scaffolding
 - ✅ GitHub Actions CI workflow
 - ✅ Comprehensive tests and documentation
@@ -33,11 +33,16 @@ This submission delivers a production-ready FHEVM Examples Generator that scaffo
   - Generates GitBook-compatible README.md
   - Supports: @title, @purpose, @chapter, @example, @note
 
-- [x] **Example Templates** (8 total)
+- [x] **Example Templates** (13 total)
   - `basic-counter` - Simple encrypted counter
   - `arithmetic` - Arithmetic operations (add, subtract, multiply)
   - `equality` - Equality comparison and conditional selection
   - `encrypt-single-value` - Single value encryption with input proofs
+  - `encrypt-multiple-values` - Batch encryption of multiple values
+  - `user-decrypt-single` - User-side decryption of single value
+  - `user-decrypt-multiple` - User-side decryption of multiple values
+  - `public-decrypt-single` - On-chain public decryption
+  - `public-decrypt-multiple` - Public decryption of multiple values
   - `access-control` - Permission management
   - `input-proofs` - Input proof explanation and best practices
   - `blind-auction` - Sealed-bid auction with encrypted bids
@@ -109,6 +114,10 @@ This creates:
 
 - `./scaffolded/basic-counter/` - Basic counter example
 - `./scaffolded/arithmetic/` - Arithmetic operations example
+- `./scaffolded/encrypt-multiple-values/` - Batch encryption example
+- `./scaffolded/user-decrypt-single/` - User decryption example
+- `./scaffolded/public-decrypt-multiple/` - Public decryption example
+- ... and 8 more examples
 - `deliverables.json` - Test results
 - `summary.txt` - Reproduction commands
 
@@ -354,28 +363,28 @@ fhevm-examples-generator/
 
 ## Target Examples
 
-### Implemented
-
+### Basic Operations (3)
 - ✅ basic-counter - Simple encrypted counter
 - ✅ arithmetic - Add, subtract, multiply operations
+- ✅ equality - Comparison operations (FHE.eq, FHE.select)
 
-### Planned (Add Templates)
+### Encryption (2)
+- ✅ encrypt-single-value - Single value encryption with input proofs
+- ✅ encrypt-multiple-values - Batch encryption of multiple values
 
-- equality - Comparison operations
-- encrypt-single-value - Single value encryption
-- encrypt-multiple-values - Multiple value encryption
-- user-decrypt-single - User decryption (single)
-- user-decrypt-multiple - User decryption (multiple)
-- public-decrypt-single - Public decryption (single)
-- public-decrypt-multiple - Public decryption (multiple)
-- access-control - Access control patterns
-- input-proofs - Input proof handling
-- handles-lifecycle - Handle lifecycle management
+### User Decryption (2)
+- ✅ user-decrypt-single - User-side decryption of single value
+- ✅ user-decrypt-multiple - User-side decryption of multiple values
 
-### Bonus
+### Public Decryption (2)
+- ✅ public-decrypt-single - On-chain public decryption
+- ✅ public-decrypt-multiple - Public decryption of multiple values
 
-- openzeppelin-erc7984 - OpenZeppelin integration
-- blind-auction - Blind auction example
+### Advanced (4)
+- ✅ access-control - Access control patterns
+- ✅ input-proofs - Input proof handling
+- ✅ blind-auction - Blind auction example
+- ✅ openzeppelin-erc7984 - OpenZeppelin ERC-7984 integration
 
 ## Adding New Examples
 
